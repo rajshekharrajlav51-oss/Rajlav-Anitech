@@ -1,0 +1,72 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#040A12"/>
+  <rect width="1280" height="720" fill="url(#ambient)"/>
+  <ellipse cx="642" cy="102" rx="300" ry="180" fill="url(#topLight)" opacity="0.9"/>
+  <ellipse cx="640" cy="648" rx="420" ry="70" fill="#081624" opacity="0.84"/>
+  <path d="M458 540L640 448L822 540L640 626L458 540Z" fill="#07121D"/>
+  <path d="M458 540V280L640 184V448L458 540Z" fill="url(#leftFace)"/>
+  <path d="M822 540V280L640 184V448L822 540Z" fill="url(#rightFace)"/>
+  <path d="M458 280L640 184L822 280L640 378L458 280Z" fill="url(#topFace)"/>
+  <path d="M514 506V314L640 246V438L514 506Z" fill="url(#innerGlow)" opacity="0.75"/>
+  <path d="M766 506V314L640 246V438L766 506Z" fill="url(#innerGlow2)" opacity="0.75"/>
+  <path d="M640 246V438" stroke="#9FDBFF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M458 280L640 378L822 280" stroke="#9FDBFF" stroke-opacity="0.95" stroke-width="4"/>
+  <path d="M458 540L640 626L822 540" stroke="#74C8FF" stroke-opacity="0.6" stroke-width="3"/>
+  <path d="M640 246C681 260 724 290 744 335C762 376 754 430 720 462C688 490 640 493 640 493C640 493 592 490 560 462C526 430 518 376 536 335C556 290 599 260 640 246Z" fill="url(#splash)" opacity="0.95"/>
+  <g filter="url(#textGlow)">
+    <text x="640" y="380" text-anchor="middle" fill="#F4FBFF" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" letter-spacing="2">CINEMATIC</text>
+    <text x="640" y="468" text-anchor="middle" fill="#DCEEFF" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" letter-spacing="2">AD</text>
+  </g>
+  <g opacity="0.9">
+    <path d="M706 438C722 438 735 451 735 467C735 487 720 501 697 518C676 501 661 487 661 467C661 451 674 438 690 438C696 438 702 440 706 445C710 440 716 438 722 438Z" fill="#7BCBFF"/>
+  </g>
+  <rect x="470" y="553" width="190" height="52" rx="4" fill="#08111A"/>
+  <rect x="475" y="558" width="180" height="42" rx="3" stroke="#B4E3FF" stroke-opacity="0.7"/>
+  <text x="565" y="590" text-anchor="middle" fill="#D7F0FF" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="3">PREMIUM</text>
+  <g opacity="0.5">
+    <circle cx="260" cy="180" r="7" fill="#5CC5FF"/>
+    <circle cx="1040" cy="210" r="5" fill="#5CC5FF"/>
+    <circle cx="982" cy="540" r="6" fill="#5CC5FF"/>
+    <circle cx="318" cy="542" r="4" fill="#5CC5FF"/>
+  </g>
+  <defs>
+    <radialGradient id="ambient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 380) rotate(90) scale(420 720)">
+      <stop stop-color="#0A2740" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#040A12" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="topLight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(642 102) rotate(90) scale(180 300)">
+      <stop stop-color="#8FD7FF"/>
+      <stop offset="1" stop-color="#8FD7FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leftFace" x1="458" y1="184" x2="640" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16354C" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#8DD2FF" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="rightFace" x1="822" y1="184" x2="640" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9EDBFF" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#16354C" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="topFace" x1="640" y1="184" x2="640" y2="378" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8F2FF" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#87D3FF" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="innerGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(620 364) rotate(90) scale(160 140)">
+      <stop stop-color="#EAFBFF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#A0D9FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="innerGlow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(660 364) rotate(90) scale(160 140)">
+      <stop stop-color="#EAFBFF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#A0D9FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="splash" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 370) rotate(90) scale(130 124)">
+      <stop stop-color="#EFFFFF"/>
+      <stop offset="0.52" stop-color="#98DEFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#98DEFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="textGlow" x="304" y="292" width="672" height="248" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur"/>
+    </filter>
+  </defs>
+</svg>

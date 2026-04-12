@@ -1,0 +1,53 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#0A0710"/>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <path d="M0 460L120 380L230 420L360 300L470 350L610 250L760 320L930 220L1110 300L1280 240V720H0V460Z" fill="url(#mountains)" opacity="0.9"/>
+  <path d="M0 520L120 470L250 500L390 380L530 430L690 350L850 400L1010 320L1170 390L1280 360V720H0V520Z" fill="#1B1028"/>
+  <ellipse cx="640" cy="306" rx="336" ry="150" fill="url(#sun)" opacity="0.9"/>
+  <path d="M903 128C852 100 789 107 728 148C684 178 649 223 628 259C607 223 572 178 528 148C467 107 404 100 353 128C302 156 278 215 286 285C294 353 333 423 392 476C467 544 572 592 628 609C684 592 789 544 864 476C923 423 962 353 970 285C978 215 954 156 903 128Z" fill="#100914" opacity="0.55"/>
+  <path d="M894 148C848 121 789 128 731 166C688 194 652 234 628 268C604 234 568 194 525 166C467 128 408 121 362 148C316 175 294 229 301 292C309 356 344 421 398 469C467 531 571 579 628 596C685 579 789 531 858 469C912 421 947 356 955 292C962 229 940 175 894 148Z" fill="url(#dragonBody)"/>
+  <path d="M523 166C463 206 413 256 364 330C337 371 312 419 287 471C320 431 347 406 380 390C427 367 479 370 531 380C589 391 634 392 682 369C729 348 762 308 788 258C816 206 855 173 894 148C848 121 789 128 731 166C688 194 652 234 628 268C604 234 568 194 523 166Z" fill="url(#dragonWing)" opacity="0.95"/>
+  <path d="M640 392L705 520L640 564L575 520L640 392Z" fill="url(#gem)"/>
+  <path d="M602 560H678V622H602V560Z" fill="#1F1530"/>
+  <g opacity="0.75">
+    <circle cx="248" cy="592" r="19" fill="#1E1626"/>
+    <circle cx="290" cy="600" r="19" fill="#1E1626"/>
+    <circle cx="332" cy="592" r="19" fill="#1E1626"/>
+  </g>
+  <text x="640" y="420" text-anchor="middle" fill="#D8D1F8" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700" letter-spacing="2">2D &amp; 3D MOTION &amp; VFX</text>
+  <text x="640" y="465" text-anchor="middle" fill="#CBB7FF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="500" opacity="0.82">Showreel by Rajlav AniTech</text>
+  <defs>
+    <linearGradient id="bg" x1="640" y1="0" x2="640" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A0E1F"/>
+      <stop offset="0.48" stop-color="#2E1636"/>
+      <stop offset="1" stop-color="#120A16"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(648 250) rotate(90) scale(302 522)">
+      <stop stop-color="#FFAF69" stop-opacity="0.72"/>
+      <stop offset="0.58" stop-color="#7E2D68" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#0A0710" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mountains" x1="640" y1="220" x2="640" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5D2749"/>
+      <stop offset="1" stop-color="#120B1D"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 306) rotate(90) scale(150 336)">
+      <stop stop-color="#FFD89A"/>
+      <stop offset="1" stop-color="#FF9E67" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dragonBody" x1="628" y1="148" x2="628" y2="596" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9D4E75"/>
+      <stop offset="0.5" stop-color="#68305E"/>
+      <stop offset="1" stop-color="#2A1637"/>
+    </linearGradient>
+    <linearGradient id="dragonWing" x1="591" y1="166" x2="591" y2="471" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F49C58"/>
+      <stop offset="1" stop-color="#5A2444"/>
+    </linearGradient>
+    <linearGradient id="gem" x1="640" y1="392" x2="640" y2="564" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE39D"/>
+      <stop offset="1" stop-color="#BB6EFF"/>
+    </linearGradient>
+  </defs>
+</svg>
