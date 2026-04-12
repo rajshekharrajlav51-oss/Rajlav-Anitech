@@ -1,0 +1,24 @@
+version: 1
+applications:
+  - appRoot: artifacts/rajlav-animation
+    env:
+      variables:
+        AMPLIFY_MONOREPO_APP_ROOT: artifacts/rajlav-animation
+    frontend:
+      buildPath: /
+      phases:
+        preBuild:
+          commands:
+            - npm install -g pnpm
+            - pnpm install --frozen-lockfile
+        build:
+          commands:
+            - pnpm --dir artifacts/rajlav-animation build
+      artifacts:
+        baseDirectory: artifacts/rajlav-animation/dist/public
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*
+          - artifacts/rajlav-animation/node_modules/**/*
