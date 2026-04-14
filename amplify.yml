@@ -15,10 +15,9 @@ applications:
           commands:
             - pnpm --dir artifacts/rajlav-animation build
       artifacts:
-        baseDirectory: artifacts/rajlav-animation/dist/public
+        baseDirectory: artifacts/rajlav-animation/dist
         files:
           - "**/*"
       cache:
         paths:
           - node_modules/**/*
-          - artifacts/rajlav-animation/node_modules/**/*
