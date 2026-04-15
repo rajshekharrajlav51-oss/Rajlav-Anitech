@@ -5,7 +5,6 @@ applications:
       variables:
         AMPLIFY_MONOREPO_APP_ROOT: artifacts/rajlav-animation
     frontend:
-      buildPath: /
       phases:
         preBuild:
           commands:
@@ -13,9 +12,9 @@ applications:
             - pnpm install --frozen-lockfile
         build:
           commands:
-            - pnpm --dir artifacts/rajlav-animation build
+            - pnpm build
       artifacts:
-        baseDirectory: artifacts/rajlav-animation/dist
+        baseDirectory: dist
         files:
           - "**/*"
       cache:
