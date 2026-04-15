@@ -6,12 +6,12 @@ applications:
         preBuild:
           commands:
             - npm install -g pnpm
-            - pnpm install --frozen-lockfile
+            - pnpm install --no-frozen-lockfile   # ✅ FIX
         build:
           commands:
             - pnpm build
       artifacts:
-        baseDirectory: artifacts/rajlav-animation/dist/public
+        baseDirectory: dist/public
         files:
           - '**/*'
       cache:
