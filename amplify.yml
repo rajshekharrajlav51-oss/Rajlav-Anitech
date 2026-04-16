@@ -9,7 +9,7 @@ frontend:
       commands:
         - pnpm --filter rajlav-animation build
   artifacts:
-    baseDirectory: artifacts/rajlav-animation/dist/public
+    baseDirectory: artifacts/rajlav-animation/dist
     files:
       - "**/*"
   cache:
