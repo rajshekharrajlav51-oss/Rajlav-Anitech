@@ -1,20 +1,17 @@
 version: 1
-applications:
-  - appRoot: artifacts/rajlav-animation
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - corepack enable
-            - pnpm install --no-frozen-lockfile
-        build:
-          commands:
-            - pnpm build
-      artifacts:
-        baseDirectory: dist
-        files:
-          - "**/*"
-      cache:
-        paths:
-          - node_modules/**/*
-          - artifacts/rajlav-animation/node_modules/**/*
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - corepack enable
+        - pnpm install --no-frozen-lockfile
+    build:
+      commands:
+        - pnpm --filter rajlav-animation build
+  artifacts:
+    baseDirectory: artifacts/rajlav-animation/dist
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
