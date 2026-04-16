@@ -2,7 +2,6 @@ version: 1
 applications:
   - appRoot: artifacts/rajlav-animation
     frontend:
-      buildPath: /
       phases:
         preBuild:
           commands:
@@ -10,9 +9,9 @@ applications:
             - pnpm install --no-frozen-lockfile
         build:
           commands:
-            - pnpm --dir artifacts/rajlav-animation build
+            - pnpm build
       artifacts:
-        baseDirectory: artifacts/rajlav-animation/dist/public
+        baseDirectory: dist
         files:
           - "**/*"
       cache:
