@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "dist/index.mjs": {
+      "memory": 1024
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/dist/index.mjs"
+    }
+  ]
+}
