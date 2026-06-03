@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
       className="fixed bottom-8 right-8 z-50 group"
     >
       <a
-        href="https://wa.me/916205834086?text=Hi! I want to discuss video production for my SaaS."
+        href="https://wa.me/916205834086?text=Hi! I want to discuss a software, AI, web, or mobile app project."
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-3"

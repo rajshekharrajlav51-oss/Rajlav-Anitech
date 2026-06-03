@@ -80,12 +80,12 @@ const billingModes: { id: BillingMode; label: string; helper: string }[] = [
   {
     id: "monthly",
     label: "Monthly",
-    helper: "Best for teams shipping every month",
+    helper: "Best for ongoing product and support teams",
   },
   {
     id: "one-time",
     label: "One-Time",
-    helper: "Best for launches and campaign sprints",
+    helper: "Best for a focused build or launch sprint",
   },
 ];
 
@@ -93,139 +93,143 @@ const plans: Plan[] = [
   {
     id: "starter",
     name: "Starter",
-    eyebrow: "Fast entry point for revenue-focused teams",
+    eyebrow: "Lean technology launch",
     positioning:
-      "For teams that need a polished, conversion-focused video without jumping into a bigger production commitment yet.",
+      "For founders and small teams that need a professional website, landing page, or focused digital product foundation.",
     tierAccent: "from-white/8 via-white/4 to-transparent",
     variants: {
       monthly: {
-        name: "Starter",
-        priceInInr: 15000,
+        name: "Starter Support",
+        priceInInr: 25000,
         priceSuffix: "/month",
-        sublabel: "Entry plan for testing video marketing without heavy commitment",
-        cta: "Start Monthly Plan",
-        emphasis: "Lead magnet plan for brands validating what video can do for growth.",
+        sublabel: "Light monthly support for websites and small business systems",
+        cta: "Start Monthly Support",
+        emphasis: "Best for maintenance, updates, analytics, and smaller feature improvements.",
         features: [
-          "5 videos per month up to 60 seconds",
-          "Basic script support",
-          "2 revisions",
-          "Standard voiceover",
-          "HD export in 1080p",
-          "5-7 day delivery",
+          "Website and app maintenance",
+          "Minor feature improvements",
+          "Performance and security checks",
+          "Monthly reporting",
+          "Priority WhatsApp support",
+          "Cloud monitoring support",
         ],
-        notIncluded: ["Ad cutdowns", "Strategy calls"],
+        notIncluded: ["Dedicated developer", "Complex AI modules"],
       },
       "one-time": {
-        name: "Starter",
-        priceInInr: 15000,
-        priceSuffix: "one-time",
-        sublabel: "Built for first-time clients who need one sharp asset",
-        cta: "Get Started",
-        emphasis: "Ideal when you want to start simple, look professional, and move fast.",
+        name: "Starter Build",
+        priceInInr: 50000,
+        priceSuffix: "starting",
+        sublabel: "A focused website or MVP starting point",
+        cta: "Start Starter Build",
+        emphasis: "Ideal when you need a clean business website, landing page, or lightweight MVP.",
         features: [
-          "1 explainer video up to 60 seconds",
-          "Script writing included",
-          "2 revisions",
-          "HD export",
+          "Business website or landing page",
+          "Responsive UI",
+          "Contact form integration",
+          "Basic SEO setup",
+          "Analytics setup",
+          "Launch support",
         ],
-        notIncluded: ["Ad cutdowns", "Premium voiceover", "Source files"],
+        notIncluded: ["Mobile app", "Custom ERP workflows"],
       },
     },
   },
   {
     id: "growth",
     name: "Growth",
-    eyebrow: "Built for pipeline, not just pretty visuals",
+    eyebrow: "Most popular for scaling businesses",
     positioning:
-      "For SaaS teams that want video tied to acquisition, activation, and sales enablement without hiring an in-house motion team.",
+      "For startups and growing companies that need serious product development across web apps, dashboards, APIs, and integrations.",
     popular: true,
     tierAccent: "from-primary/20 via-primary/8 to-transparent",
     variants: {
       monthly: {
-        name: "Growth",
-        priceInInr: 35000,
+        name: "Growth Partner",
+        priceInInr: 75000,
         priceSuffix: "/month",
-        sublabel: "Core money plan for brands serious about recurring video output",
+        sublabel: "Ongoing product development with a reliable technical team",
         cta: "Choose Growth",
-        urgency: "Most teams move here once video becomes part of the funnel",
-        emphasis: "Most Popular for teams that want volume, polish, and strategy in one plan.",
+        urgency: "Most requested plan for active product teams",
+        emphasis: "Best for consistent improvements, integrations, dashboards, and cloud support.",
         features: [
-          "10 videos per month",
-          "Full script plus storyboard",
-          "2-3 ad cutdowns",
-          "Unlimited revisions",
-          "Premium voiceover",
-          "4K export",
+          "Dedicated monthly development hours",
+          "Web app and dashboard updates",
+          "API and third-party integrations",
+          "Cloud deployment support",
+          "Bug fixes and QA",
+          "Sprint planning",
           "Priority support",
-          "Strategy guidance",
+          "Monthly strategy call",
         ],
-        notIncluded: ["Dedicated animator", "Weekly strategy calls"],
+        notIncluded: ["Full-time dedicated team", "Enterprise SLA"],
       },
       "one-time": {
         name: "Growth Project",
-        priceInInr: 35000,
-        priceSuffix: "per project",
-        sublabel: "Premium project scope for teams ready to push harder",
-        cta: "Start Project",
+        priceInInr: 200000,
+        priceSuffix: "starting",
+        sublabel: "A custom web app, dashboard, or automation project",
+        cta: "Start Growth Project",
         emphasis:
-          "Best when one video needs stronger polish, support assets, and a higher-converting finish.",
+          "Best when one product needs strong planning, polished UI, backend logic, and integrations.",
         features: [
-          "1 premium video up to 90 seconds",
-          "Script plus storyboard",
-          "2 ad cutdowns",
-          "Unlimited revisions",
-          "Premium voiceover",
-          "4K export",
+          "Custom web app or portal",
+          "Admin dashboard",
+          "Backend and API development",
+          "Payment or CRM integration",
+          "Responsive UI",
+          "QA and deployment",
         ],
-        notIncluded: ["Full funnel strategy", "Source files"],
+        notIncluded: ["Native mobile apps", "Enterprise compliance scope"],
       },
     },
   },
   {
     id: "scale",
     name: "Scale",
-    eyebrow: "The monthly lane for serious growth teams",
+    eyebrow: "Enterprise-grade technology execution",
     positioning:
-      "For funded startups, agencies, and GTM teams that need premium video output every month without production bottlenecks.",
+      "For organizations that need complex software, AI systems, mobile apps, ERP, CRM, cloud architecture, or long-term technical partnership.",
     tierAccent: "from-accent/16 via-primary/10 to-transparent",
     variants: {
       monthly: {
-        name: "Scale",
-        priceInInr: 70000,
-        priceNote: "*",
+        name: "Scale Team",
+        priceInInr: 150000,
+        priceNote: "+",
         priceSuffix: "/month",
-        sublabel: "High-ticket monthly lane for clients who need speed and full support",
+        sublabel: "High-touch product engineering and support",
         cta: "Apply For Scale",
-        urgency: "Limited slots available",
-        emphasis: "For high-ticket clients who need an always-on premium production partner.",
+        urgency: "Limited monthly partner slots",
+        emphasis: "For businesses that need dependable engineering capacity and strategic technical ownership.",
         features: [
-          "Unlimited videos",
-          "Dedicated animator",
-          "48-hour turnaround",
-          "Unlimited revisions",
-          "Full funnel strategy",
-          "Premium voiceover",
-          "4K plus source files",
+          "Dedicated development capacity",
+          "AI solution development",
+          "ERP and CRM improvements",
+          "Mobile app support",
+          "Cloud and DevOps support",
+          "Architecture planning",
+          "Security and performance reviews",
           "Weekly strategy calls",
-          "White-label option",
+          "Priority technical support",
         ],
         notIncluded: [],
       },
       "one-time": {
-        name: "Premium Project",
-        priceInInr: 60000,
-        priceSuffix: "one-time",
-        sublabel: "For brands that want a complete premium rollout, not just one video",
-        cta: "Book Strategy Call",
+        name: "Enterprise Project",
+        priceInInr: 500000,
+        priceNote: "+",
+        priceSuffix: "custom quote",
+        sublabel: "Large software, AI, mobile, ERP, or transformation scope",
+        cta: "Book Discovery Call",
         emphasis:
-          "Best for high-value campaigns that need multiple assets working together across the funnel.",
+          "Best for mission-critical builds that need discovery, architecture, milestones, and senior delivery oversight.",
         features: [
-          "2-3 videos bundle",
-          "Full funnel video strategy",
-          "Ads plus demo plus onboarding assets",
-          "Unlimited revisions",
-          "Premium assets plus voiceover",
-          "Source files included",
+          "Custom software build",
+          "AI chatbot or GPT-powered system",
+          "Mobile app development",
+          "ERP or CRM platform",
+          "Cloud infrastructure",
+          "Documentation and training",
+          "Launch and support plan",
         ],
         notIncluded: [],
       },
@@ -235,98 +239,82 @@ const plans: Plan[] = [
 
 const comparisonRows = [
   {
-    label: "Buying model",
-    values: {
-      starter: { monthly: "Light monthly support", "one-time": "One-time sprint" },
-      growth: { monthly: "Monthly retainer", "one-time": "Per-project rollout" },
-      scale: { monthly: "Monthly subscription", "one-time": "Custom inquiry" },
-    },
-  },
-  {
     label: "Best fit",
     values: {
-      starter: { monthly: "Testing consistency", "one-time": "One hero asset" },
-      growth: { monthly: "Consistent pipeline support", "one-time": "Major launch campaign" },
-      scale: { monthly: "Always-on production", "one-time": "Enterprise scope only" },
+      starter: { monthly: "Website support", "one-time": "Business website" },
+      growth: { monthly: "Product growth", "one-time": "Custom web app" },
+      scale: { monthly: "Engineering partner", "one-time": "Enterprise build" },
     },
   },
   {
     label: "Core output",
     values: {
-      starter: { monthly: "5 lighter assets monthly", "one-time": "1 conversion video" },
-      growth: { monthly: "10 assets monthly", "one-time": "Hero video plus cutdowns" },
-      scale: { monthly: "Unlimited multi-asset queue", "one-time": "2-3 video bundle" },
+      starter: { monthly: "Maintenance and small updates", "one-time": "Website or MVP" },
+      growth: { monthly: "Monthly feature delivery", "one-time": "App, portal, dashboard" },
+      scale: { monthly: "Dedicated product execution", "one-time": "AI, ERP, mobile, cloud" },
     },
   },
   {
     label: "Strategy depth",
     values: {
-      starter: { monthly: "Basic script support", "one-time": "Script writing" },
-      growth: { monthly: "Strategy guidance", "one-time": "Script plus storyboard" },
-      scale: { monthly: "Full funnel strategy", "one-time": "Full funnel strategy" },
+      starter: { monthly: "Basic technical guidance", "one-time": "Launch planning" },
+      growth: { monthly: "Sprint planning", "one-time": "Product architecture" },
+      scale: { monthly: "Senior technical ownership", "one-time": "Full discovery and roadmap" },
     },
   },
   {
-    label: "Turnaround",
+    label: "Support",
     values: {
-      starter: { monthly: "5-7 day delivery", "one-time": "Standard sprint" },
-      growth: { monthly: "Priority support", "one-time": "Project rollout schedule" },
-      scale: { monthly: "48-hour turnaround", "one-time": "Proposal-based" },
+      starter: { monthly: "Priority WhatsApp", "one-time": "Launch support" },
+      growth: { monthly: "Priority product support", "one-time": "Post-launch support" },
+      scale: { monthly: "Priority technical support", "one-time": "Custom SLA options" },
     },
   },
 ];
 
 const faqs = [
   {
-    q: "Which option is best if we need one strong video first?",
-    a: "If you're starting out, the Starter plan is the fastest way to get a high-converting video without long-term commitment. If you want better results with ads or multiple assets, most teams choose Growth to maximize ROI from the start.",
+    q: "Which plan should I choose for a new website or app?",
+    a: "Starter is best for a professional website or lightweight MVP. Growth is better when you need a custom web app, dashboard, backend, integrations, or a product that will keep evolving.",
   },
   {
-    q: "Why would a SaaS team choose monthly instead of per project?",
-    a: "Monthly works best when video becomes part of your growth engine - not just a one-time asset. It allows faster iteration, consistent messaging, and better performance across ads, onboarding, and sales funnels.",
+    q: "Can Rajlav Technologies build AI features into existing software?",
+    a: "Yes. We can add AI chatbots, GPT-powered assistants, workflow automation, document processing, recommendations, and predictive features to new or existing systems.",
   },
   {
-    q: "What makes Scale different from Growth monthly?",
-    a: "Growth is perfect for consistent content and improving conversions. Scale is built for teams that need speed, volume, and a dedicated production system - without hiring in-house.",
+    q: "Do you provide mobile app development?",
+    a: "Yes. We build Android, iOS, and cross-platform apps, including APIs, admin panels, push notifications, analytics, and deployment support.",
   },
   {
-    q: "Do you handle script, narrative, and creative direction?",
-    a: "Yes - we don't just create videos, we build conversion-focused assets. We handle script, messaging, and creative direction based on your product, audience, and growth goals.",
+    q: "Can you support us after launch?",
+    a: "Yes. Monthly plans cover maintenance, improvements, cloud support, bug fixes, monitoring, and ongoing technical guidance.",
   },
   {
-    q: "Can we start with a one-time project and move into monthly later?",
-    a: "Absolutely. Most clients start with a single project to test results, then move into monthly once they see the impact. It's the easiest way to scale video without risk.",
-  },
-  {
-    q: "How do we know video will actually increase conversions?",
-    a: "Our videos are designed around conversion psychology, not just visuals. We focus on messaging, clarity, and user behavior - which directly impacts signups, demos, and retention.",
-  },
-  {
-    q: "How fast can we get our first video?",
-    a: "Starter projects are typically delivered within 5-7 days. For monthly clients, turnaround is faster with priority production and ongoing support.",
+    q: "Do you work with startups and enterprises?",
+    a: "Yes. We support early-stage startups, educational platforms, healthcare providers, finance companies, and enterprise teams that need reliable custom technology.",
   },
 ];
 
 const trustStats = [
-  { value: "50+", label: "SaaS and digital brands served" },
-  { value: "31%", label: "Average lift on conversion-focused pages" },
-  { value: "48hr", label: "Fastest active-request turnaround" },
-  { value: "High-Ticket", label: "Positioning built for premium buyers" },
+  { value: "100+", label: "Projects Delivered" },
+  { value: "50+", label: "Happy Clients" },
+  { value: "10+", label: "Industries Served" },
+  { value: "24/7", label: "Technical Support" },
 ];
 
 const trustTestimonials = [
   {
     quote:
-      "Growth monthly gave us consistency without sacrificing quality. It felt like we suddenly had a strategist and production team in the room every week.",
+      "The Growth plan gave us a reliable technology team without hiring internally. Our dashboard, integrations, and customer workflows improved every sprint.",
     name: "Arjun Mehta",
-    role: "Founder, LeadPulse",
+    role: "Founder, FinPulse",
     initials: "AM",
   },
   {
     quote:
-      "Scale made our brand look more expensive and our launches feel more coordinated. The speed was great, but the strategic clarity was what really changed outcomes.",
+      "Rajlav Technologies built our AI assistant and connected it to real business workflows. The delivery was practical, polished, and easy for the team to adopt.",
     name: "Priya Sharma",
-    role: "Head of Growth, StackOps",
+    role: "Operations Head, DataOps AI",
     initials: "PS",
   },
 ];
@@ -385,7 +373,7 @@ export default function Pricing() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary"
           >
             <Zap className="h-4 w-4" />
-            Hybrid pricing for SaaS teams that buy on outcomes
+            Flexible technology pricing for every growth stage
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -394,9 +382,9 @@ export default function Pricing() {
             transition={{ delay: 0.05 }}
             className="mb-5 text-4xl font-extrabold tracking-tighter text-white md:text-6xl"
           >
-            Choose the Video Engagement{" "}
+            Choose the Software Plan{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              That Matches Your Revenue Stage.
+              That Fits Your Next Build.
             </span>
           </motion.h2>
           <motion.p
@@ -406,7 +394,7 @@ export default function Pricing() {
             transition={{ delay: 0.1 }}
             className="mx-auto max-w-3xl text-xl text-gray-400"
           >
-            Start with a focused one-time asset or lock in a monthly production lane. Every tier is built to raise perceived value, sharpen the message, and turn video into a growth lever.
+            Start with a focused build or keep a technology team on monthly support. Every plan is structured around scalable software, AI automation, and reliable product delivery.
           </motion.p>
         </div>
 
@@ -451,10 +439,10 @@ export default function Pricing() {
 
         <div className="mx-auto mb-10 max-w-5xl rounded-3xl border border-amber-400/15 bg-amber-400/5 px-6 py-4 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-amber-300">
-            Why the toggle matters
+            One-time or monthly
           </p>
           <p className="mt-2 text-base leading-7 text-gray-300">
-            One-time is ideal when you need a flagship asset for a launch, pitch, or campaign. Monthly is for teams that already know video drives growth and want speed, consistency, and a dedicated production rhythm.
+            One-time is ideal for a defined product build. Monthly is for teams that need continuous product development, support, optimization, and technical ownership.
           </p>
         </div>
 
@@ -472,7 +460,7 @@ export default function Pricing() {
                   transition={{ delay: i * 0.08, duration: 0.28 }}
                   className={`relative flex h-full flex-col rounded-[30px] border p-8 ${
                     plan.popular
-                      ? "border-primary/70 bg-background shadow-[0_0_70px_-22px_rgba(124,58,237,0.55)] lg:-my-3 lg:scale-[1.03]"
+                      ? "border-primary/70 bg-background shadow-[0_0_70px_-22px_rgba(251,191,36,0.45)] lg:-my-3 lg:scale-[1.03]"
                       : "border-white/10 bg-background"
                   }`}
                 >
@@ -481,7 +469,7 @@ export default function Pricing() {
                   />
 
                   {plan.popular ? (
-                    <div className="absolute -top-5 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-primary px-5 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_20px_rgba(124,58,237,0.6)]">
+                    <div className="absolute -top-5 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-primary px-5 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_0_20px_rgba(251,191,36,0.55)]">
                       <Flame className="h-3.5 w-3.5" />
                       Most Popular
                     </div>
@@ -537,7 +525,7 @@ export default function Pricing() {
                     variant={plan.popular ? "default" : "outline"}
                     className={`relative z-10 h-13 w-full text-base transition-all ${
                       plan.popular
-                        ? "bg-primary text-white shadow-[0_0_30px_-5px_rgba(124,58,237,0.5)] hover:bg-primary/90 hover:shadow-[0_0_45px_-5px_rgba(124,58,237,0.7)]"
+                        ? "bg-primary text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.45)] hover:bg-primary/90 hover:shadow-[0_0_45px_-5px_rgba(251,191,36,0.6)]"
                         : "border-white/15 text-white hover:border-primary/40 hover:bg-white/5"
                     }`}
                     onClick={scrollToForm}
@@ -558,10 +546,10 @@ export default function Pricing() {
           className="mx-auto mb-24 max-w-5xl"
         >
           <h3 className="mb-4 text-center text-2xl font-bold text-white md:text-3xl">
-            A buying model designed for how premium SaaS teams actually purchase
+            A delivery model designed for modern digital businesses
           </h3>
           <p className="mx-auto mb-10 max-w-3xl text-center text-gray-400">
-            The layout keeps decisions simple: a lean entry plan, a flexible hybrid growth plan, and a high-touch subscription lane for teams where recurring content is already part of growth.
+            Keep the decision simple: launch lean, build growth systems, or partner with a dedicated technology team for complex AI, app, and enterprise needs.
           </p>
 
           <div className="overflow-hidden rounded-2xl border border-white/8">
@@ -620,34 +608,19 @@ export default function Pricing() {
             <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center">
               <div className="flex-1">
                 <div className="mb-3 text-xs font-bold uppercase tracking-widest text-accent">
-                  UI layout suggestion
+                  Need something custom?
                 </div>
                 <h3 className="mb-4 text-3xl font-extrabold text-white md:text-4xl">
-                  Keep the section premium, clear, and buyer-oriented
+                  Get a custom roadmap for your software, AI, web, or mobile project
                 </h3>
                 <p className="text-lg leading-relaxed text-gray-400">
-                  Lead with the toggle, keep three cards in a single row, and let Growth sit slightly elevated as the default decision path. Add subscription urgency in a subtle banner, not aggressive countdown gimmicks.
+                  Share your goals, workflows, users, and timeline. We will recommend the right architecture, delivery path, and commercial model for your next build.
                 </p>
-                <ul className="mt-6 grid grid-cols-2 gap-3">
-                  {[
-                    "Toggle above cards",
-                    "Growth centered and elevated",
-                    "Urgency only on monthly tiers",
-                    "Benefits before raw feature lists",
-                    "Comparison table below cards",
-                    "Custom quote CTA after plans",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
-                      <div className="h-1.5 w-1.5 rounded-full bg-accent" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
               <div className="shrink-0 flex flex-col gap-3">
                 <Button
                   size="lg"
-                  className="h-14 px-8 text-base text-white shadow-[0_0_30px_-5px_rgba(168,85,247,0.5)] transition-all hover:bg-accent/90"
+                  className="h-14 px-8 text-base text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.45)] transition-all hover:bg-accent/90"
                   onClick={scrollToForm}
                 >
                   Get Custom Quote
@@ -659,7 +632,7 @@ export default function Pricing() {
                   className="h-14 px-8 text-base text-accent transition-all hover:bg-accent/10"
                   onClick={() =>
                     window.open(
-                      "https://wa.me/916205834086?text=Hi! I need a custom animation quote for a SaaS campaign.",
+                      "https://wa.me/916205834086?text=Hi! I need a custom quote for a software, AI, web, or mobile app project.",
                       "_blank",
                     )
                   }
@@ -679,7 +652,7 @@ export default function Pricing() {
           className="mx-auto mb-28 max-w-5xl"
         >
           <h3 className="mb-12 text-center text-2xl font-bold text-white md:text-3xl">
-            Why high-ticket SaaS clients choose this pricing structure
+            Why growing businesses choose Rajlav Technologies
           </h3>
 
           <div className="mb-14 grid grid-cols-2 gap-6 md:grid-cols-4">
@@ -749,14 +722,14 @@ export default function Pricing() {
 
           <div className="mt-12 text-center">
             <p className="mb-6 text-lg text-gray-400">
-              Still unsure? Let's map the best video strategy for your product in a quick call.
+              Still unsure? Let's map the best technical path for your product in a quick call.
             </p>
             <Button
               size="lg"
-              className="h-14 px-10 text-base text-white shadow-[0_0_30px_-5px_rgba(124,58,237,0.4)] transition-all hover:bg-primary/90"
+              className="h-14 px-10 text-base text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] transition-all hover:bg-primary/90"
               onClick={scrollToForm}
             >
-              Book Free Strategy Call
+              Book Free Consultation
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>

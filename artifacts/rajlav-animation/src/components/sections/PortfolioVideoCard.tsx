@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Play, X } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 
 type PortfolioVideoCardProps = {
   title: string;
@@ -39,13 +39,23 @@ export default function PortfolioVideoCard({
   thumbnail,
   category,
   duration,
-  accentClassName = "from-primary/70 via-violet-500/45 to-fuchsia-500/50",
+  accentClassName = "from-primary/70 via-amber-500/45 to-orange-500/50",
 }: PortfolioVideoCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const youtubeVideoId = getYouTubeVideoId(videoUrl);
+  const isInternalLink = videoUrl.startsWith("#");
   const embedUrl = youtubeVideoId
     ? `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0&modestbranding=1`
     : videoUrl;
+
+  const handleCardClick = () => {
+    if (isInternalLink) {
+      document.querySelector(videoUrl)?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+
+    setIsOpen(true);
+  };
 
   useEffect(() => {
     if (!isOpen) {
@@ -76,13 +86,13 @@ export default function PortfolioVideoCard({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 18 }}
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/35 hover:shadow-[0_32px_90px_-42px_rgba(124,58,237,0.5)]"
+        className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/35 hover:shadow-[0_32px_90px_-42px_rgba(251,191,36,0.35)]"
       >
         <button
           type="button"
-          onClick={() => setIsOpen(true)}
+          onClick={handleCardClick}
           className="block w-full text-left"
-          aria-label={`Play ${title}`}
+          aria-label={`View ${title}`}
         >
           <div className="relative aspect-[16/10] overflow-hidden">
             <img
@@ -91,7 +101,7 @@ export default function PortfolioVideoCard({
               className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             />
             <div className={`absolute inset-0 bg-gradient-to-br ${accentClassName} opacity-80 mix-blend-screen transition-opacity duration-500 group-hover:opacity-95`} />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(124,58,237,0.24),transparent_32%),linear-gradient(180deg,rgba(8,8,14,0.05),rgba(8,8,14,0.82))]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(251,191,36,0.24),transparent_32%),linear-gradient(180deg,rgba(8,8,14,0.05),rgba(8,8,14,0.82))]" />
 
             {(category || duration) && (
               <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4">
@@ -115,8 +125,8 @@ export default function PortfolioVideoCard({
                 <span className="absolute inset-0 rounded-full bg-primary/40 blur-xl transition-all duration-500 group-hover:scale-125 group-hover:bg-primary/60" />
                 <span className="absolute inset-0 rounded-full border border-primary/40 group-hover:animate-ping" />
                 <span className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-xl transition duration-500 group-hover:scale-110 group-hover:bg-primary/75">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-[0_0_40px_rgba(124,58,237,0.55)] transition duration-500 group-hover:scale-110">
-                    <Play className="ml-1 h-5 w-5 fill-current" />
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-[0_0_40px_rgba(251,191,36,0.55)] transition duration-500 group-hover:scale-110">
+                    <ArrowUpRight className="h-5 w-5" />
                   </span>
                 </span>
               </div>
@@ -167,7 +177,7 @@ export default function PortfolioVideoCard({
                 type="button"
                 onClick={() => setIsOpen(false)}
                 className="absolute right-3 top-3 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/45 text-white/80 backdrop-blur-md transition hover:border-primary/40 hover:text-white"
-                aria-label="Close video"
+                aria-label="Close preview"
               >
                 <X className="h-5 w-5" />
               </button>

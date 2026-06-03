@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Star, Menu, X, ArrowRight } from "lucide-react";
+import { Code2, Star, Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CALENDLY_URL = "https://calendly.com/anitech_rajlav/new-meeting";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "Work", href: "#work" },
+  { label: "Services", href: "#work" },
   { label: "Process", href: "#process" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Pricing", href: "#pricing" },
@@ -46,11 +46,11 @@ export default function Navbar() {
           <a href="#" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors relative">
               <div className="absolute inset-0 bg-primary/40 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Play className="w-4.5 h-4.5 text-primary fill-primary" />
+              <Code2 className="w-4.5 h-4.5 text-primary" />
             </div>
             <div>
               <span className="text-lg font-extrabold tracking-tight text-white leading-none">
-                Rajlav <span className="text-primary">Animation</span>
+                Rajlav <span className="text-primary">Technologies</span>
               </span>
             </div>
           </a>
@@ -91,7 +91,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3 shrink-0">
             <Button
               size="sm"
-              className="bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_-5px_rgba(124,58,237,0.6)] border border-primary/40 transition-all hover:shadow-[0_0_30px_-5px_rgba(124,58,237,0.7)] h-9 px-4 text-sm"
+              className="bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_-5px_rgba(251,191,36,0.5)] border border-primary/40 transition-all hover:shadow-[0_0_30px_-5px_rgba(251,191,36,0.65)] h-9 px-4 text-sm"
               onClick={openCalendly}
             >
               Get Free Consultation

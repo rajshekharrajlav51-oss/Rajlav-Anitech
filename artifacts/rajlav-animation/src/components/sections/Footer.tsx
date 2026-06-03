@@ -1,4 +1,4 @@
-import { Play, Instagram, Youtube, Linkedin, Facebook, Mail, MessageCircle, MapPin, Star } from "lucide-react";
+import { Code2, Instagram, Youtube, Linkedin, Facebook, Mail, MessageCircle, MapPin, Star } from "lucide-react";
 
 const CALENDLY_URL = "https://calendly.com/anitech_rajlav/new-meeting";
 const WHATSAPP_URL = "https://wa.me/916205834086";
@@ -7,21 +7,21 @@ const navGroups = [
   {
     heading: "Services",
     links: [
-      { label: "Explainer Videos", href: "#work" },
-      { label: "SaaS Demo Videos", href: "#work" },
-      { label: "Onboarding Videos", href: "#work" },
-      { label: "Social Media Ads", href: "#work" },
-      { label: "2D / 3D Animation", href: "#work" },
+      { label: "Web Development", href: "#work" },
+      { label: "Mobile App Development", href: "#work" },
+      { label: "AI Solutions", href: "#work" },
+      { label: "ERP & CRM Systems", href: "#work" },
+      { label: "Cloud & DevOps", href: "#work" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "Our Work", href: "#portfolio" },
-      { label: "How It Works", href: "#process" },
+      { label: "Portfolio", href: "#portfolio" },
+      { label: "Process", href: "#process" },
       { label: "Pricing", href: "#pricing" },
       { label: "Testimonials", href: "#" },
-      { label: "Get Free Script", href: "#lead-form" },
+      { label: "Free Consultation", href: "#lead-form" },
     ],
   },
 ];
@@ -30,7 +30,7 @@ const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/rajlav_anitech/", label: "Instagram" },
   { icon: Youtube, href: "https://www.youtube.com/@rajlavanitech", label: "YouTube" },
   { icon: Linkedin, href: "https://www.linkedin.com/company/rajlav-anitech/posts/?feedView=all", label: "LinkedIn" },
-  { icon: Facebook, href: "https://www.facebook.com/people/Rajlav-VFX-And-Animation/61555758506870/", label: "Facebook" },
+  { icon: Facebook, href: "https://www.facebook.com/", label: "Facebook" },
 ];
 
 const ratingBadges = [
@@ -42,12 +42,11 @@ const ratingBadges = [
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-white/6">
-      {/* Top CTA strip */}
       <div className="border-b border-white/6 py-6">
         <div className="container px-4 mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-sm">
-            Ready to grow your brand with video?{" "}
-            <span className="text-white font-medium">Let's talk strategy — it's free.</span>
+            Ready to build your next digital product?{" "}
+            <span className="text-white font-medium">Let's talk technology. It's free.</span>
           </p>
           <a
             href={CALENDLY_URL}
@@ -64,22 +63,23 @@ export default function Footer() {
 
       <div className="container px-4 mx-auto py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
-          {/* Brand column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-5">
               <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center">
-                <Play className="w-4.5 h-4.5 text-primary fill-primary" />
+                <Code2 className="w-4.5 h-4.5 text-primary" />
               </div>
               <span className="text-lg font-extrabold tracking-tight text-white">
-                Rajlav <span className="text-primary">Animation</span>
+                Rajlav <span className="text-primary">Technologies</span>
               </span>
             </div>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
-              The #1 animation agency for SaaS companies, startups, and growing brands. We turn complex products into irresistible video stories that convert.
+              Premium software development, AI solutions, web applications, mobile apps, ERP, CRM, cloud, and digital transformation for startups and growing businesses.
+            </p>
+            <p className="text-primary text-xs font-semibold uppercase tracking-widest mb-6">
+              AI • Software • Web • Mobile
             </p>
 
-            {/* Rating badges */}
             <div className="flex flex-wrap gap-3 mb-7">
               {ratingBadges.map((badge) => (
                 <div
@@ -99,7 +99,6 @@ export default function Footer() {
               ))}
             </div>
 
-            {/* Social */}
             <div className="flex items-center gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
@@ -116,7 +115,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Nav columns */}
           {navGroups.map((group) => (
             <div key={group.heading}>
               <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">
@@ -137,7 +135,6 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Contact column */}
           <div>
             <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">
               Contact
@@ -182,15 +179,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-600 text-xs">
-            &copy; {new Date().getFullYear()} Rajlav Animation. All rights reserved.
+            &copy; {new Date().getFullYear()} Rajlav Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-gray-600 text-xs">
             <a href="#" className="hover:text-gray-400 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-gray-400 transition-colors">Terms of Service</a>
-            <span className="text-gray-700">SaaS Explainer Experts · India</span>
+            <span className="text-gray-700">AI • Software • Web • Mobile</span>
           </div>
         </div>
       </div>

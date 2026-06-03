@@ -2,74 +2,75 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   BarChart3,
-  Cuboid,
+  Bot,
+  CloudCog,
+  DatabaseZap,
   Globe,
-  Megaphone,
-  MonitorPlay,
+  Smartphone,
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
   {
-    icon: Zap,
-    title: "Explainer Videos",
-    tagline: "Make your value obvious in the first 30 seconds.",
-    desc: "Clarify what your product does, who it is for, and why it matters, so more visitors understand the offer fast enough to convert.",
-    stat: "+31%",
-    statLabel: "homepage conversion lift",
+    icon: Globe,
+    title: "Web Development",
+    tagline: "High-performance web products built to scale.",
+    desc: "Custom business websites, SaaS platforms, admin dashboards, and enterprise portals designed for performance and scalability.",
+    stat: "100+",
+    statLabel: "projects delivered",
     color: "from-primary/20 to-primary/5",
     border: "border-primary/20",
   },
   {
-    icon: BarChart3,
-    title: "SaaS Demo Videos",
-    tagline: "Let your product pitch itself at scale.",
-    desc: "Show the product in action with a structured narrative that shortens sales conversations and turns curiosity into qualified demand.",
-    stat: "2.4x",
-    statLabel: "more demo requests",
-    color: "from-emerald-900/20 to-emerald-900/5",
-    border: "border-emerald-700/20",
-  },
-  {
-    icon: MonitorPlay,
-    title: "Onboarding Videos",
-    tagline: "Get users to value before they drop off.",
-    desc: "Guide users to their first win faster, reduce repetitive support, and improve activation with clear product-led onboarding content.",
-    stat: "+22%",
-    statLabel: "activation improvement",
-    color: "from-accent/15 to-accent/5",
-    border: "border-accent/20",
-  },
-  {
-    icon: Megaphone,
-    title: "Social Media Ads",
-    tagline: "Stop the scroll and sell the next click.",
-    desc: "Performance-focused creative for Meta, LinkedIn, YouTube, and short-form placements built to improve hook rate, CTR, and pipeline quality.",
-    stat: "3.8x",
-    statLabel: "average ROAS improvement",
+    icon: Smartphone,
+    title: "Mobile App Development",
+    tagline: "Modern apps for Android, iOS, and cross-platform launches.",
+    desc: "Android, iOS, and cross-platform applications built with modern frameworks and optimized user experience.",
+    stat: "2x",
+    statLabel: "faster release cycles",
     color: "from-amber-900/20 to-amber-900/5",
     border: "border-amber-700/20",
   },
   {
-    icon: Globe,
-    title: "2D Animation",
-    tagline: "Simplify the story without losing impact.",
-    desc: "Use polished motion design to explain abstract features, workflows, and benefits in a way that feels sharp, modern, and easy to remember.",
-    stat: "+41%",
-    statLabel: "watch-time improvement",
-    color: "from-violet-900/20 to-violet-900/5",
-    border: "border-violet-700/20",
+    icon: Bot,
+    title: "AI Solutions",
+    tagline: "Intelligent systems that automate real work.",
+    desc: "AI chatbots, AI assistants, workflow automation, predictive systems, and GPT-powered applications.",
+    stat: "24/7",
+    statLabel: "automation support",
+    color: "from-accent/15 to-accent/5",
+    border: "border-accent/20",
   },
   {
-    icon: Cuboid,
-    title: "3D Animation",
-    tagline: "Make the brand feel bigger than the competition.",
-    desc: "Create cinematic product visuals and premium launch assets that raise perceived value and make your offer look category-leading from frame one.",
-    stat: "$1.2M+",
-    statLabel: "pipeline influenced",
-    color: "from-sky-900/20 to-sky-900/5",
-    border: "border-sky-700/20",
+    icon: DatabaseZap,
+    title: "ERP & CRM Systems",
+    tagline: "Software tailored to the way your business operates.",
+    desc: "Custom ERP, CRM, HRMS, and business management software tailored to your operations.",
+    stat: "10+",
+    statLabel: "industries served",
+    color: "from-amber-900/20 to-amber-900/5",
+    border: "border-amber-700/20",
+  },
+  {
+    icon: CloudCog,
+    title: "Cloud & DevOps",
+    tagline: "Secure infrastructure for reliable digital products.",
+    desc: "Secure deployment, cloud infrastructure, CI/CD pipelines, server management, and performance optimization.",
+    stat: "99.9%",
+    statLabel: "uptime-focused builds",
+    color: "from-yellow-900/20 to-yellow-900/5",
+    border: "border-yellow-700/20",
+  },
+  {
+    icon: BarChart3,
+    title: "Digital Transformation",
+    tagline: "Digitize operations and remove growth bottlenecks.",
+    desc: "Business automation, third-party integrations, process digitization, and operational efficiency solutions.",
+    stat: "+35%",
+    statLabel: "efficiency gains",
+    color: "from-orange-900/20 to-orange-900/5",
+    border: "border-orange-700/20",
   },
 ];
 
@@ -97,9 +98,9 @@ export default function Services() {
             transition={{ delay: 0.05 }}
             className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-5"
           >
-            Video Services Built to
+            Technology Services Built To
             <br />
-            Move Revenue Metrics
+            Accelerate Growth
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -108,7 +109,7 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="text-xl text-gray-400 leading-relaxed"
           >
-            Every engagement is built around outcomes: stronger conversions, better activation, sharper positioning, and faster sales momentum.
+            From custom software to AI automation, we create scalable digital solutions that improve efficiency, customer experience, and revenue.
           </motion.p>
         </div>
 
@@ -143,12 +144,12 @@ export default function Services() {
         <div className="text-center">
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_-5px_rgba(124,58,237,0.4)] transition-all"
+            className="bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] transition-all"
             onClick={() =>
               document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            See What Fits Your Funnel
+            Discuss Your Technology Roadmap
             <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </div>

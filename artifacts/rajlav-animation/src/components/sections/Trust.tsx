@@ -2,72 +2,72 @@ import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 
 const stats = [
-  { value: "31%", label: "Average Lift In Landing Page Conversion" },
-  { value: "22%", label: "Average Increase In Activation Rate" },
-  { value: "3.8x", label: "Typical ROAS Improvement On Ad Creatives" },
-  { value: "48hrs", label: "To First Script Direction" },
+  { value: "100+", label: "Projects Delivered Across Web, App, AI" },
+  { value: "50+", label: "Happy Clients And Growing Teams" },
+  { value: "10+", label: "Industries Served With Custom Tech" },
+  { value: "24/7", label: "Technical Support For Critical Systems" },
 ];
 
 const testimonials = [
   {
     quote:
-      "Rajlav took a product our prospects found hard to understand and made it feel obvious. Our homepage started converting better within the first week, and sales finally had a video they were proud to send.",
+      "Rajlav Technologies helped us move from scattered tools to a clean custom platform. The team understood our workflows quickly and shipped a system our staff actually enjoys using.",
     name: "Sarah Chen",
     role: "CEO",
-    company: "FlowStack",
+    company: "EduFlow",
     initials: "SC",
     bg: "from-blue-600 to-primary",
-    plan: "SaaS Demo Video",
+    plan: "EdTech Platform",
   },
   {
     quote:
-      "The onboarding videos helped new users get to value much faster. We saw fewer repetitive support tickets, better feature adoption, and a noticeably smoother activation experience.",
+      "Our healthcare operations became far smoother after the new appointment, billing, and reporting modules went live. The automation removed hours of manual follow-up every week.",
     name: "Marcus Johnson",
     role: "VP of Product",
-    company: "NexusCRM",
+    company: "CareBridge",
     initials: "MJ",
     bg: "from-primary to-accent",
-    plan: "Onboarding Series",
+    plan: "Healthcare System",
   },
   {
     quote:
-      "We needed a way to explain AI workflows without sounding technical or generic. Rajlav gave us a narrative our audience understood immediately, and demo requests jumped hard.",
+      "They built an AI assistant that handles repetitive customer queries and internal requests with impressive accuracy. It feels like a real operations upgrade, not a gimmick.",
     name: "Elena Rodriguez",
     role: "Founder",
-    company: "DataSync",
+    company: "DataOps AI",
     initials: "ER",
-    bg: "from-accent to-violet-600",
-    plan: "Explainer Video",
+    bg: "from-accent to-yellow-600",
+    plan: "AI Assistant",
   },
   {
     quote:
-      "The 3D launch video changed how prospects perceived the brand. It made us look bigger, sharper, and far more established than competitors in the same space.",
+      "The CRM platform gave our finance team a single view of leads, documents, onboarding status, and sales activity. We finally have control over the complete customer journey.",
     name: "Arjun Mehta",
     role: "Co-founder",
-    company: "CloudPulse",
+    company: "FinPulse",
     initials: "AM",
     bg: "from-emerald-600 to-teal-700",
-    plan: "3D Launch Video",
+    plan: "Finance CRM",
   },
   {
     quote:
-      "Their ad creatives gave us better hooks, cleaner messaging, and far more usable variations for paid testing. The result was stronger CTR and a healthier cost per pipeline opportunity.",
+      "Rajlav delivered a fast, polished mobile app with the admin tools we needed behind it. Communication was clear and the product felt premium from the first release.",
     name: "Priya Sharma",
     role: "Head of Growth",
-    company: "LeadPulse",
+    company: "RetailLoop",
     initials: "PS",
     bg: "from-rose-600 to-orange-600",
-    plan: "Paid Social Ads",
+    plan: "Mobile App",
   },
   {
     quote:
-      "This was not another vendor delivering pretty visuals and calling it strategy. Rajlav understood positioning, funnel friction, and how to turn one video into an actual sales asset.",
+      "They modernized our internal ERP without overcomplicating the rollout. Reporting, approvals, and daily operations now move through one reliable system.",
     name: "Daniel Park",
     role: "CMO",
-    company: "StackOps",
+    company: "StackWorks",
     initials: "DP",
-    bg: "from-violet-600 to-purple-800",
-    plan: "Growth Retainer",
+    bg: "from-yellow-600 to-orange-800",
+    plan: "Enterprise ERP",
   },
 ];
 
@@ -105,7 +105,7 @@ export default function Trust() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-5"
           >
             <Star className="w-3.5 h-3.5 fill-amber-400" />
-            Trusted by fast-moving SaaS and app teams
+            Trusted by startups, enterprises, and growing businesses
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
@@ -114,7 +114,7 @@ export default function Trust() {
             transition={{ delay: 0.05 }}
             className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white"
           >
-            Results You Can Feel In The Funnel
+            Results You Can Measure In Your Operations
           </motion.h2>
         </div>
 

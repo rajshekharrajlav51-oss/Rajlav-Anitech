@@ -9,8 +9,8 @@ const platforms = [
 ];
 
 const clientNames = [
-  "TechFlow", "NexusCRM", "DataSync", "CloudPulse", "StackOps",
-  "HireFlow", "PayVault", "LeadPulse", "MetricIO", "DevStack",
+  "EduFlow", "CareBridge", "FinPulse", "DataOps AI", "RetailLoop",
+  "HireFlow", "PayVault", "LeadPulse", "MetricIO", "StackWorks",
 ];
 
 export default function Partners() {
@@ -23,7 +23,7 @@ export default function Partners() {
           viewport={{ once: true }}
           className="text-center text-xs font-semibold uppercase tracking-widest text-gray-500 mb-8"
         >
-          Rated top-rated on every major platform
+          Trusted across software, AI, web, mobile, and enterprise systems
         </motion.p>
 
         {/* Platform ratings */}

@@ -24,22 +24,22 @@ const schema = z.object({
   whatsapp: z.string().min(10, "Enter a valid WhatsApp number"),
   email: z.string().email("Enter a valid email"),
   budget: z.string().min(1, "Please select a budget"),
-  videoType: z.string().min(1, "Please select a video type"),
+  projectType: z.string().min(1, "Please select a project type"),
 });
 
 type FormData = z.infer<typeof schema>;
 
 function buildWhatsAppMessage(data: FormData) {
   return [
-    "Hi Rajlav Animation,",
+    "Hi Rajlav Technologies,",
     "",
-    "I would like to book a video strategy session.",
+    "I would like to book a free technology consultation.",
     "",
     `Name: ${data.name}`,
     `Phone: ${data.whatsapp}`,
     `Email: ${data.email}`,
     `Budget: ${data.budget}`,
-    `Video Type: ${data.videoType}`,
+    `Project Type: ${data.projectType}`,
   ].join("\n");
 }
 
@@ -47,7 +47,7 @@ export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [redirecting, setRedirecting] = useState(false);
   const [budget, setBudget] = useState("");
-  const [videoType, setVideoType] = useState("");
+  const [projectType, setProjectType] = useState("");
 
   const {
     register,
@@ -86,10 +86,10 @@ export default function LeadForm() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-4">
-              Get Your Free Video Strategy Session
+              Book Your Free Technology Consultation
             </h2>
             <p className="text-xl text-gray-400">
-              We&apos;ll create a custom script idea for your SaaS. Then we&apos;ll take you straight to booking.
+              Tell us what you want to build. We&apos;ll review your goals and guide you to the right software, AI, web, or mobile solution.
             </p>
           </motion.div>
 
@@ -97,9 +97,9 @@ export default function LeadForm() {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-16 px-8 rounded-3xl bg-background border border-primary/30 shadow-[0_0_60px_-15px_rgba(124,58,237,0.4)]"
+              className="text-center py-16 px-8 rounded-3xl bg-background border border-primary/30 shadow-[0_0_60px_-15px_rgba(251,191,36,0.35)]"
             >
-              <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(124,58,237,0.4)]">
+              <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(251,191,36,0.4)]">
                 <CheckCircle2 className="w-10 h-10 text-primary" />
               </div>
               <h3 className="text-3xl font-bold text-white mb-4">Redirecting You Now</h3>
@@ -114,7 +114,7 @@ export default function LeadForm() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               onSubmit={handleSubmit(onSubmit)}
-              className="p-8 md:p-12 rounded-3xl bg-background border border-card-border shadow-[0_0_60px_-20px_rgba(124,58,237,0.3)] space-y-6"
+              className="p-8 md:p-12 rounded-3xl bg-background border border-card-border shadow-[0_0_60px_-20px_rgba(251,191,36,0.25)] space-y-6"
             >
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-white font-medium">Full Name</Label>
@@ -124,9 +124,7 @@ export default function LeadForm() {
                   className="h-12 bg-card border-card-border text-white placeholder:text-gray-500 focus:border-primary/50"
                   {...register("name")}
                 />
-                {errors.name && (
-                  <p className="text-red-400 text-sm">{errors.name.message}</p>
-                )}
+                {errors.name && <p className="text-red-400 text-sm">{errors.name.message}</p>}
               </div>
 
               <div className="space-y-2">
@@ -137,9 +135,7 @@ export default function LeadForm() {
                   className="h-12 bg-card border-card-border text-white placeholder:text-gray-500 focus:border-primary/50"
                   {...register("whatsapp")}
                 />
-                {errors.whatsapp && (
-                  <p className="text-red-400 text-sm">{errors.whatsapp.message}</p>
-                )}
+                {errors.whatsapp && <p className="text-red-400 text-sm">{errors.whatsapp.message}</p>}
               </div>
 
               <div className="space-y-2">
@@ -151,9 +147,7 @@ export default function LeadForm() {
                   className="h-12 bg-card border-card-border text-white placeholder:text-gray-500 focus:border-primary/50"
                   {...register("email")}
                 />
-                {errors.email && (
-                  <p className="text-red-400 text-sm">{errors.email.message}</p>
-                )}
+                {errors.email && <p className="text-red-400 text-sm">{errors.email.message}</p>}
               </div>
 
               <div className="space-y-2">
@@ -169,38 +163,38 @@ export default function LeadForm() {
                     <SelectValue placeholder="Select your budget" />
                   </SelectTrigger>
                   <SelectContent className="bg-card border-card-border text-white">
-                    <SelectItem value="Under ₹25,000">Under ₹25,000</SelectItem>
-                    <SelectItem value="₹25,000 - ₹65,000">₹25,000 - ₹65,000</SelectItem>
-                    <SelectItem value="₹65,000+">₹65,000+</SelectItem>
+                    <SelectItem value="Under INR 50,000">Under INR 50,000</SelectItem>
+                    <SelectItem value="INR 50,000 - INR 2,00,000">INR 50,000 - INR 2,00,000</SelectItem>
+                    <SelectItem value="INR 2,00,000 - INR 5,00,000">INR 2,00,000 - INR 5,00,000</SelectItem>
+                    <SelectItem value="INR 5,00,000+">INR 5,00,000+</SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.budget && (
-                  <p className="text-red-400 text-sm">{errors.budget.message}</p>
-                )}
+                {errors.budget && <p className="text-red-400 text-sm">{errors.budget.message}</p>}
               </div>
 
               <div className="space-y-2">
-                <Label className="text-white font-medium">Type of Video</Label>
+                <Label className="text-white font-medium">Project Type</Label>
                 <Select
                   onValueChange={(val) => {
-                    setVideoType(val);
-                    setValue("videoType", val, { shouldValidate: true });
+                    setProjectType(val);
+                    setValue("projectType", val, { shouldValidate: true });
                   }}
-                  value={videoType}
+                  value={projectType}
                 >
                   <SelectTrigger className="h-12 bg-card border-card-border text-white [&>span]:text-white data-[placeholder]:text-gray-500 focus:border-primary/50">
-                    <SelectValue placeholder="What video do you need?" />
+                    <SelectValue placeholder="What do you want to build?" />
                   </SelectTrigger>
                   <SelectContent className="bg-card border-card-border text-white">
-                    <SelectItem value="Explainer Video">Explainer Video</SelectItem>
-                    <SelectItem value="SaaS Demo Video">SaaS Demo Video</SelectItem>
-                    <SelectItem value="Onboarding Video">Onboarding Video</SelectItem>
-                    <SelectItem value="Social Media Ads">Social Media Ads</SelectItem>
-                    <SelectItem value="2D / 3D Animation">2D / 3D Animation</SelectItem>
+                    <SelectItem value="Website / Web App">Website / Web App</SelectItem>
+                    <SelectItem value="Mobile App">Mobile App</SelectItem>
+                    <SelectItem value="AI Solution">AI Solution</SelectItem>
+                    <SelectItem value="ERP / CRM System">ERP / CRM System</SelectItem>
+                    <SelectItem value="Cloud / DevOps">Cloud / DevOps</SelectItem>
+                    <SelectItem value="Digital Transformation">Digital Transformation</SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.videoType && (
-                  <p className="text-red-400 text-sm">{errors.videoType.message}</p>
+                {errors.projectType && (
+                  <p className="text-red-400 text-sm">{errors.projectType.message}</p>
                 )}
               </div>
 
@@ -208,9 +202,9 @@ export default function LeadForm() {
                 type="submit"
                 size="lg"
                 disabled={isBusy}
-                className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_-5px_rgba(124,58,237,0.5)] hover:shadow-[0_0_50px_-5px_rgba(124,58,237,0.7)] transition-all disabled:opacity-80"
+                className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.45)] hover:shadow-[0_0_50px_-5px_rgba(251,191,36,0.6)] transition-all disabled:opacity-80"
               >
-                {redirecting ? "Redirecting to booking..." : isSubmitting ? "Sending..." : "Send My Free Script Idea"}
+                {redirecting ? "Redirecting to booking..." : isSubmitting ? "Sending..." : "Book Free Consultation"}
                 {!isBusy && <ArrowRight className="ml-2 w-5 h-5" />}
               </Button>
 
