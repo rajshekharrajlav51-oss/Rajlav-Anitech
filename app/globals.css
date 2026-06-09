@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --primary: #fbbf24;
+  --accent: #06b6d4;
+}
+
+body{background:linear-gradient(180deg,#0f172a,#000);color:#e6eef8}
+
+.container{max-width:72rem;margin-left:auto;margin-right:auto;padding:0 1.5rem}
+
+.bg-primary{background:var(--primary)}
+.text-primary{color:var(--primary)}

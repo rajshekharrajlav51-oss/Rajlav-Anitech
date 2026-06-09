@@ -1,0 +1,16 @@
+# robots.txt for Rajlav Technologies
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow private paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.env
+Disallow: /.git
+
+# Sitemap location
+Sitemap: https://anitech.rajlav.co.in/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

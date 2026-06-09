@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code2, Star, Menu, X, ArrowRight } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 
 const CALENDLY_URL = "https://calendly.com/anitech_rajlav/new-meeting";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeMenu, setActiveMenu] = useState("Home");
+  const [location] = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,6 +28,11 @@ export default function Navbar() {
   const openCalendly = () => {
     setMobileOpen(false);
     window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
+  };
+
+  const isActive = (href: string) => {
+    if (href === "/") return location === "/";
+    return location.startsWith(href);
   };
 
   return (
@@ -43,7 +49,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-4 h-20 flex items-center justify-between gap-6">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group shrink-0">
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors relative">
               <div className="absolute inset-0 bg-primary/40 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
               <Code2 className="w-4.5 h-4.5 text-primary" />
@@ -53,7 +59,7 @@ export default function Navbar() {
                 Rajlav <span className="text-primary">Technologies</span>
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Rating badge — desktop */}
           <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20">
@@ -69,21 +75,20 @@ export default function Navbar() {
           {/* Nav links — desktop */}
           <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className={`text-sm font-medium transition-colors relative group ${
-                  activeMenu === link.label ? "text-white" : "text-gray-400 hover:text-white"
+                  isActive(link.href) ? "text-white" : "text-gray-400 hover:text-white"
                 }`}
-                onClick={() => setActiveMenu(link.label)}
               >
                 {link.label}
                 <span
                   className={`absolute -bottom-0.5 left-0 right-0 h-px bg-primary transition-transform origin-left ${
-                    activeMenu === link.label ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    isActive(link.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                   }`}
                 />
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -131,19 +136,16 @@ export default function Navbar() {
               </div>
 
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
-                  onClick={() => {
-                    setMobileOpen(false);
-                    setActiveMenu(link.label);
-                  }}
+                  onClick={() => setMobileOpen(false)}
                   className={`text-base font-medium transition-colors py-2 border-b border-white/5 ${
-                    activeMenu === link.label ? "text-white" : "text-gray-300 hover:text-white"
+                    isActive(link.href) ? "text-white" : "text-gray-300 hover:text-white"
                   }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <Button
                 className="w-full mt-2 bg-primary hover:bg-primary/90 text-white h-12"

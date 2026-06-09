@@ -1,4 +1,5 @@
 import { Code2, Instagram, Youtube, Linkedin, Facebook, Mail, MessageCircle, MapPin, Star } from "lucide-react";
+import { Link } from "wouter";
 
 const CALENDLY_URL = "https://calendly.com/anitech_rajlav/new-meeting";
 const WHATSAPP_URL = "https://wa.me/916205834086";
@@ -7,21 +8,21 @@ const navGroups = [
   {
     heading: "Services",
     links: [
-      { label: "Web Development", href: "#work" },
-      { label: "Mobile App Development", href: "#work" },
-      { label: "AI Solutions", href: "#work" },
-      { label: "ERP & CRM Systems", href: "#work" },
-      { label: "Cloud & DevOps", href: "#work" },
+      { label: "Web Development", href: "/services/web-development" },
+      { label: "Mobile App Development", href: "/services/mobile-app-development" },
+      { label: "AI Solutions", href: "/services/ai-development" },
+      { label: "ERP & CRM Systems", href: "/services" },
+      { label: "Cloud & DevOps", href: "/services" },
     ],
   },
   {
     heading: "Company",
     links: [
-      { label: "Portfolio", href: "#portfolio" },
-      { label: "Process", href: "#process" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Testimonials", href: "#" },
-      { label: "Free Consultation", href: "#lead-form" },
+      { label: "Portfolio", href: "/portfolio" },
+      { label: "Process", href: "/about" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Testimonials", href: "/" },
+      { label: "Free Consultation", href: "/contact" },
     ],
   },
 ];
@@ -123,12 +124,12 @@ export default function Footer() {
               <ul className="space-y-3">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-gray-400 text-sm hover:text-white transition-colors"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -184,8 +185,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Rajlav Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-gray-600 text-xs">
-            <a href="#" className="hover:text-gray-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-gray-400 transition-colors">Terms of Service</a>
+            <Link href="/" className="hover:text-gray-400 transition-colors">Privacy Policy</Link>
+            <Link href="/" className="hover:text-gray-400 transition-colors">Terms of Service</Link>
             <span className="text-gray-700">AI • Software • Web • Mobile</span>
           </div>
         </div>
