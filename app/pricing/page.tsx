@@ -1,32 +1,35 @@
+import Link from 'next/link'
+import { absoluteUrl, site } from '../site-data'
+
 export const metadata = {
-  title: 'Pricing — Rajlav Anitech',
-  description: 'Flexible pricing models: discovery sprints, fixed-price engagements, time-and-materials teams, and managed services.',
-  alternates: { canonical: 'https://www.rajlav-anitech.com/pricing' },
+  title: 'Pricing and Engagement Models',
+  description: 'Flexible discovery, fixed-scope, dedicated team and managed support options for software, AI, SaaS, web and automation projects.',
+  alternates: { canonical: absoluteUrl('/pricing') },
 }
 
-const breadcrumb = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  'itemListElement': [
-    { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.rajlav-anitech.com' },
-    { '@type': 'ListItem', 'position': 2, 'name': 'Pricing', 'item': 'https://www.rajlav-anitech.com/pricing' }
-  ]
-}
-
-export default function PricingPage(){
+export default function PricingPage() {
   return (
-    <section className="container mx-auto py-16">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <h1 className="text-3xl font-bold text-white">Pricing</h1>
-      <p className="mt-4 text-gray-300">We offer flexible engagement models tailored to project stage and risk profile. Typical options include:</p>
-      <ul className="mt-6 list-disc ml-6 text-gray-300">
-        <li><strong>Discovery sprint:</strong> Time-boxed engagement to validate ideas and produce an implementation plan.</li>
-        <li><strong>Fixed scope:</strong> For well-defined projects with agreed deliverables and milestones.</li>
-        <li><strong>Time & materials:</strong> Dedicated teams billed monthly for long-term product work.</li>
-        <li><strong>Managed services:</strong> Ongoing platform operations and MLOps managed for predictable SLAs.</li>
-      </ul>
-
-      <p className="mt-6 text-gray-300">Contact us for a tailored estimate — we provide clear breakdowns of work, milestones, and expected outcomes so you can make an informed decision.</p>
+    <section className="container section-space">
+      <h1 className="section-title">Pricing and Engagement Models</h1>
+      <p className="section-lead">
+        {site.name} estimates projects based on scope, integrations, design needs, timeline and ongoing support requirements. We avoid one-size-fits-all pricing for custom software.
+      </p>
+      <div className="mt-10 grid gap-5 md:grid-cols-2">
+        {[
+          ['Discovery Sprint', 'A focused planning engagement to define requirements, risks, architecture and a realistic implementation roadmap.'],
+          ['Fixed Scope', 'Best for clearly defined websites, MVPs, dashboards and workflow tools with agreed deliverables and milestones.'],
+          ['Dedicated Team', 'Monthly engineering support for startups and businesses that need ongoing product development.'],
+          ['Managed Support', 'Ongoing maintenance, automation improvements, monitoring and iteration after launch.'],
+        ].map(([title, body]) => (
+          <article className="premium-card" key={title}>
+            <h2 className="text-xl font-bold text-white">{title}</h2>
+            <p className="mt-3 text-sm leading-6 text-gray-300">{body}</p>
+          </article>
+        ))}
+      </div>
+      <Link href="/contact" className="mt-10 inline-block rounded-md bg-primary px-6 py-3 font-semibold text-black shadow-gold">
+        Discuss Your Idea
+      </Link>
     </section>
   )
 }

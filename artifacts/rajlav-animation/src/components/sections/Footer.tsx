@@ -1,43 +1,15 @@
-import { Code2, Instagram, Youtube, Linkedin, Facebook, Mail, MessageCircle, MapPin, Star } from "lucide-react";
+import { Code2, Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Youtube } from "lucide-react";
 import { Link } from "wouter";
+import { services, site } from "@/lib/seo-data";
 
 const CALENDLY_URL = "https://calendly.com/anitech_rajlav/new-meeting";
 const WHATSAPP_URL = "https://wa.me/916205834086";
 
-const navGroups = [
-  {
-    heading: "Services",
-    links: [
-      { label: "Web Development", href: "/services/web-development" },
-      { label: "Mobile App Development", href: "/services/mobile-app-development" },
-      { label: "AI Solutions", href: "/services/ai-development" },
-      { label: "ERP & CRM Systems", href: "/services" },
-      { label: "Cloud & DevOps", href: "/services" },
-    ],
-  },
-  {
-    heading: "Company",
-    links: [
-      { label: "Portfolio", href: "/portfolio" },
-      { label: "Process", href: "/about" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "Testimonials", href: "/" },
-      { label: "Free Consultation", href: "/contact" },
-    ],
-  },
-];
-
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/rajlav_anitech/", label: "Instagram" },
   { icon: Youtube, href: "https://www.youtube.com/@rajlavanitech", label: "YouTube" },
-  { icon: Linkedin, href: "https://www.linkedin.com/company/rajlav-anitech/posts/?feedView=all", label: "LinkedIn" },
+  { icon: Linkedin, href: site.linkedIn, label: "LinkedIn" },
   { icon: Facebook, href: "https://www.facebook.com/", label: "Facebook" },
-];
-
-const ratingBadges = [
-  { platform: "Google", stars: 5.0, reviews: "48 reviews" },
-  { platform: "Clutch", stars: 4.9, reviews: "32 reviews" },
-  { platform: "Upwork", stars: 4.9, reviews: "Top Rated" },
 ];
 
 export default function Footer() {
@@ -46,13 +18,12 @@ export default function Footer() {
       <div className="border-b border-white/6 py-6">
         <div className="container px-4 mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-sm">
-            Ready to build your next digital product?{" "}
-            <span className="text-white font-medium">Let's talk technology. It's free.</span>
+            Have a project in mind? <span className="text-white font-medium">Let's build your next digital product.</span>
           </p>
           <a
             href={CALENDLY_URL}
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={(event) => {
+              event.preventDefault();
               window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
             }}
             className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-semibold hover:bg-primary/25 transition-colors"
@@ -74,31 +45,12 @@ export default function Footer() {
               </span>
             </div>
 
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
-              Premium software development, AI solutions, web applications, mobile apps, ERP, CRM, cloud, and digital transformation for startups and growing businesses.
+            <p className="text-gray-400 text-sm leading-relaxed mb-4 max-w-sm">
+              AI & Software Development Company serving Noida, Delhi NCR, Uttar Pradesh and remote clients with AI, software, web, mobile, SaaS and business automation solutions.
             </p>
-            <p className="text-primary text-xs font-semibold uppercase tracking-widest mb-6">
-              AI • Software • Web • Mobile
+            <p className="text-gray-500 text-xs leading-relaxed mb-7 max-w-sm">
+              Also known as Rajlav Anitech, Rajlav Technologies is the technology/software division of the Rajlav ecosystem.
             </p>
-
-            <div className="flex flex-wrap gap-3 mb-7">
-              {ratingBadges.map((badge) => (
-                <div
-                  key={badge.platform}
-                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-amber-500/8 border border-amber-500/15"
-                >
-                  <div className="flex">
-                    {Array.from({ length: Math.floor(badge.stars) }).map((_, i) => (
-                      <Star key={i} className="w-2.5 h-2.5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-amber-300 font-bold leading-none">{badge.platform}</div>
-                    <div className="text-[9px] text-gray-500 leading-none mt-0.5">{badge.reviews}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
 
             <div className="flex items-center gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
@@ -116,54 +68,56 @@ export default function Footer() {
             </div>
           </div>
 
-          {navGroups.map((group) => (
-            <div key={group.heading}>
-              <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">
-                {group.heading}
-              </h4>
-              <ul className="space-y-3">
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 text-sm hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h2 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Services</h2>
+            <ul className="space-y-3">
+              {services.slice(0, 6).map((service) => (
+                <li key={service.slug}>
+                  <Link href={`/services/${service.slug}`} className="text-gray-400 text-sm hover:text-white transition-colors">
+                    {service.navTitle}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <div>
-            <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-5">
-              Contact
-            </h4>
+            <h2 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Company</h2>
+            <ul className="space-y-3">
+              {[
+                ["About", "/about"],
+                ["Portfolio", "/portfolio"],
+                ["Contact", "/contact"],
+                ["Privacy Policy", "/privacy-policy"],
+                ["Terms & Conditions", "/terms-and-conditions"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="text-gray-400 text-sm hover:text-white transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Contact</h2>
             <ul className="space-y-4 text-sm">
               <li>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-gray-400 hover:text-green-400 transition-colors group"
-                >
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-start gap-3 text-gray-400 hover:text-green-400 transition-colors group">
                   <MessageCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-white group-hover:text-green-300 text-xs">WhatsApp</div>
-                    <div>+91 62058 34086</div>
+                    <div>{site.phone}</div>
                   </div>
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:hello@anitech.rajlav.co.in"
-                  className="flex items-start gap-3 text-gray-400 hover:text-primary transition-colors group"
-                >
+                <a href={`mailto:${site.email}`} className="flex items-start gap-3 text-gray-400 hover:text-primary transition-colors group">
                   <Mail className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-white group-hover:text-primary text-xs">Email</div>
-                    <div>hello@anitech.rajlav.co.in</div>
+                    <div>{site.email}</div>
                   </div>
                 </a>
               </li>
@@ -172,7 +126,7 @@ export default function Footer() {
                   <MapPin className="w-4 h-4 text-gray-500 shrink-0 mt-0.5" />
                   <div>
                     <div className="font-medium text-white text-xs">Location</div>
-                    <div>India · Remote Worldwide</div>
+                    <div>Noida, Uttar Pradesh, India</div>
                   </div>
                 </div>
               </li>
@@ -185,9 +139,9 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Rajlav Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-gray-600 text-xs">
-            <Link href="/" className="hover:text-gray-400 transition-colors">Privacy Policy</Link>
-            <Link href="/" className="hover:text-gray-400 transition-colors">Terms of Service</Link>
-            <span className="text-gray-700">AI • Software • Web • Mobile</span>
+            <Link href="/privacy-policy" className="hover:text-gray-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-gray-400 transition-colors">Terms & Conditions</Link>
+            <span className="text-gray-700">Noida / Delhi NCR</span>
           </div>
         </div>
       </div>

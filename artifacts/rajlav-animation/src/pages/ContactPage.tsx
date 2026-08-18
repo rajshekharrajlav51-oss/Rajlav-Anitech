@@ -1,12 +1,14 @@
 import { SEO } from "@/components/SEO";
 import LeadForm from "@/components/sections/LeadForm";
+import { site, url } from "@/lib/seo-data";
 
 export default function ContactPage() {
   return (
     <>
       <SEO 
-        title="Contact Us | Rajlav Technologies" 
-        description="Get in touch with Rajlav Technologies. We'd love to discuss your project and help you build digital products that scale."
+        title="Contact Rajlav Technologies" 
+        description="Contact Rajlav Technologies in Noida to discuss AI development, custom software, websites, mobile apps, SaaS or business automation."
+        canonical={url("/contact")}
       />
       <div className="pt-32">
         <div className="container mx-auto px-4 py-16 md:py-24">
@@ -14,7 +16,7 @@ export default function ContactPage() {
             Get in <span className="text-primary">Touch</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-3xl">
-            Have a project in mind? We'd love to hear about it. Reach out to our team and let's discuss how we can help bring your vision to life.
+            Rajlav Technologies serves Noida, Delhi NCR, Uttar Pradesh and remote clients. Email {site.email} or share your project details below.
           </p>
         </div>
       </div>

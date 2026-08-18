@@ -6,7 +6,6 @@ import {
   ChevronDown,
   Flame,
   MessageCircle,
-  Star,
   X,
   Zap,
 } from "lucide-react";
@@ -296,26 +295,26 @@ const faqs = [
 ];
 
 const trustStats = [
-  { value: "100+", label: "Projects Delivered" },
-  { value: "50+", label: "Happy Clients" },
-  { value: "10+", label: "Industries Served" },
-  { value: "24/7", label: "Technical Support" },
+  { value: "AI", label: "Development" },
+  { value: "Web", label: "Applications" },
+  { value: "SaaS", label: "Platforms" },
+  { value: "Noida", label: "Delhi NCR" },
 ];
 
 const trustTestimonials = [
   {
     quote:
-      "The Growth plan gave us a reliable technology team without hiring internally. Our dashboard, integrations, and customer workflows improved every sprint.",
-    name: "Arjun Mehta",
-    role: "Founder, FinPulse",
-    initials: "AM",
+      "Best for teams that need ongoing product development, integrations, dashboards, automation and technical support after launch.",
+    name: "Growth Partner",
+    role: "Monthly product development",
+    initials: "GP",
   },
   {
     quote:
-      "Rajlav Technologies built our AI assistant and connected it to real business workflows. The delivery was practical, polished, and easy for the team to adopt.",
-    name: "Priya Sharma",
-    role: "Operations Head, DataOps AI",
-    initials: "PS",
+      "Best for defined software, AI, web, mobile or SaaS projects that need discovery, milestones, launch support and documentation.",
+    name: "Project Build",
+    role: "One-time custom development",
+    initials: "PB",
   },
 ];
 
@@ -685,11 +684,6 @@ export default function Pricing() {
                 transition={{ delay: index * 0.1 }}
                 className="rounded-2xl border border-card-border bg-card p-8 transition-colors hover:border-primary/40"
               >
-                <div className="mb-5 flex gap-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="h-4 w-4 fill-primary text-primary" />
-                  ))}
-                </div>
                 <p className="mb-6 leading-relaxed text-gray-300">"{testimonial.quote}"</p>
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-primary/15 text-sm font-bold text-primary">

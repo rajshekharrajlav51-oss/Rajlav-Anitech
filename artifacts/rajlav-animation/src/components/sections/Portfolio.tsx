@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PortfolioVideoCard from "@/components/sections/PortfolioVideoCard";
+import { portfolio as seoPortfolio } from "@/lib/seo-data";
 
 type Category = "All" | "Web" | "Mobile" | "AI" | "Enterprise";
 
@@ -21,72 +22,23 @@ type PortfolioItem = {
 const categories: Category[] = ["All", "Web", "Mobile", "AI", "Enterprise"];
 
 const portfolio: PortfolioItem[] = [
-  {
-    id: 1,
-    title: "EdTech Learning Platform",
-    category: "Web",
-    duration: "EdTech",
-    metric: "AI Learning",
-    description: "Student management, online learning, assessments, analytics, and AI-powered learning assistance.",
-    thumbnail: "/portfolio-edtech-platform.svg",
-    videoUrl: "#lead-form",
+  ...seoPortfolio.map((item, index) => ({
+    id: index + 1,
+    title: item.title,
+    category: (
+      item.slug === "ai-business-assistant"
+        ? "AI"
+        : item.slug === "edtech-learning-platform" || item.slug === "payments-inventory"
+          ? "Web"
+          : "Enterprise"
+    ) as Exclude<Category, "All">,
+    duration: item.industry,
+    metric: item.category,
+    description: item.description,
+    thumbnail: item.thumbnail,
+    videoUrl: `/portfolio/${item.slug}`,
     accentClassName: "from-amber-700/75 via-orange-600/45 to-primary/35",
-  },
-  {
-    id: 2,
-    title: "Healthcare Management System",
-    category: "Enterprise",
-    duration: "Healthcare",
-    metric: "Workflow Automation",
-    description: "Appointments, patient records, billing, reporting, and hospital workflow automation.",
-    thumbnail: "/portfolio-healthcare-system.svg",
-    videoUrl: "#lead-form",
-    accentClassName: "from-yellow-700/75 via-primary/55 to-orange-500/45",
-  },
-  {
-    id: 3,
-    title: "Finance CRM Platform",
-    category: "Enterprise",
-    duration: "FinTech",
-    metric: "Sales Automation",
-    description: "Lead management, customer onboarding, loan processing, and sales automation.",
-    thumbnail: "/portfolio-finance-crm.svg",
-    videoUrl: "#lead-form",
-    accentClassName: "from-orange-700/75 via-amber-600/45 to-primary/40",
-  },
-  {
-    id: 4,
-    title: "AI Business Assistant",
-    category: "AI",
-    duration: "GPT App",
-    metric: "AI Automation",
-    description: "Custom GPT-powered assistant handling customer support and business workflows.",
-    thumbnail: "/portfolio-ai-assistant.svg",
-    videoUrl: "#lead-form",
-    accentClassName: "from-yellow-700/70 via-amber-700/40 to-primary/30",
-  },
-  {
-    id: 5,
-    title: "E-Commerce Platform",
-    category: "Web",
-    duration: "Marketplace",
-    metric: "Payments & Inventory",
-    description: "Scalable online marketplace with payments, inventory, and customer management.",
-    thumbnail: "/portfolio-ecommerce-platform.svg",
-    videoUrl: "#lead-form",
-    accentClassName: "from-stone-700/75 via-amber-700/45 to-primary/35",
-  },
-  {
-    id: 6,
-    title: "Enterprise ERP",
-    category: "Enterprise",
-    duration: "Operations",
-    metric: "Reporting & Automation",
-    description: "Complete business operations management with reporting and automation.",
-    thumbnail: "/portfolio-enterprise-erp.svg",
-    videoUrl: "#lead-form",
-    accentClassName: "from-orange-700/75 via-yellow-700/45 to-primary/35",
-  },
+  })),
 ];
 
 export default function Portfolio() {
@@ -154,7 +106,7 @@ export default function Portfolio() {
           ))}
         </motion.div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {filtered.map((item) => (
               <PortfolioVideoCard
@@ -164,6 +116,7 @@ export default function Portfolio() {
                 description={item.description}
                 videoUrl={item.videoUrl}
                 thumbnail={item.thumbnail}
+                alt={seoPortfolio.find((portfolioItem) => portfolioItem.title === item.title)?.alt}
                 category={item.category}
                 duration={item.duration}
                 accentClassName={item.accentClassName}

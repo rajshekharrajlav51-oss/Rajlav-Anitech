@@ -1,102 +1,110 @@
-﻿import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
+import { faqs, services, site, url } from "@/lib/seo-data";
 
 interface SEOProps {
   title?: string;
   description?: string;
   canonical?: string;
   keywords?: string;
+  pageType?: "website" | "service" | "article";
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  noFaqSchema?: boolean;
 }
 
 export function SEO({
-  title = "Rajlav Technologies | AI & Software Development Company",
-  description = "Top-tier AI Development, Web Development, Mobile App Development, and SaaS Development company. We build digital products for India, USA, UK, Canada, and Australia.",
-  canonical = "https://anitech.rajlav.co.in",
-  keywords = "AI Development Company, Software Development Company, Web Development Agency, Mobile App Development Company, SaaS Development Company",
+  title = "Rajlav Technologies | AI & Software Development Company in Noida",
+  description = site.description,
+  canonical = url("/"),
+  keywords = "Rajlav Technologies, Rajlav Anitech, AI development company in Noida, software development company in Noida, web development company in Noida, mobile app development company in Noida, SaaS development company",
+  pageType = "website",
+  schema,
+  noFaqSchema = true,
 }: SEOProps) {
-  
-  // Organization Schema
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Rajlav Technologies",
-    "url": "https://anitech.rajlav.co.in",
-    "logo": "https://anitech.rajlav.co.in/portfolio-ai-assistant.svg",
-    "description": "Rajlav Technologies is a leading AI and Software Development company providing digital product development services.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "India"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "availableLanguage": ["English", "Hindi"]
-    }
+    name: site.name,
+    alternateName: site.alternateName,
+    url: site.domain,
+    logo: url("/favicon.png"),
+    description: site.description,
+    email: site.email,
+    telephone: site.phone,
+    sameAs: [site.linkedIn],
   };
 
-  // Local Business Schema
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Rajlav Technologies",
-    "image": "https://anitech.rajlav.co.in/portfolio-ai-assistant.svg",
-    "url": "https://anitech.rajlav.co.in",
-    "priceRange": "",
-    "address": {
+    name: site.name,
+    alternateName: site.alternateName,
+    image: url("/opengraph.jpg"),
+    url: site.domain,
+    telephone: site.phone,
+    email: site.email,
+    address: {
       "@type": "PostalAddress",
-      "addressCountry": "India"
+      addressLocality: site.city,
+      addressRegion: site.region,
+      addressCountry: site.country,
     },
-    "areaServed": ["India", "USA", "UK", "Canada", "Australia"]
+    areaServed: ["Noida", "Delhi NCR", "Uttar Pradesh", "India"],
   };
 
-  // Website Schema
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://anitech.rajlav.co.in",
-    "name": "Rajlav Technologies",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://anitech.rajlav.co.in/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    url: site.domain,
+    name: site.name,
+    alternateName: site.alternateName,
   };
 
-  // Service Schema
-  const serviceSchema = {
+  const serviceCatalogSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Software Development",
-    "provider": {
+    serviceType: "AI and Software Development",
+    provider: {
       "@type": "Organization",
-      "name": "Rajlav Technologies"
+      name: site.name,
+      url: site.domain,
     },
-    "hasOfferCatalog": {
+    areaServed: ["Noida", "Delhi NCR", "Uttar Pradesh", "India"],
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": "Development Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "AI Development" }
+      name: "Rajlav Technologies Services",
+      itemListElement: services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service.navTitle,
+          url: url(`/services/${service.slug}`),
         },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Web Development" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Mobile App Development" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "SaaS Development" }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "UI/UX Design" }
-        }
-      ]
-    }
+      })),
+    },
   };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
+  };
+
+  const extraSchemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
+  const schemas = [
+    organizationSchema,
+    localBusinessSchema,
+    websiteSchema,
+    serviceCatalogSchema,
+    ...(!noFaqSchema ? [faqSchema] : []),
+    ...extraSchemas,
+  ];
 
   return (
     <Helmet>
@@ -105,25 +113,24 @@ export function SEO({
       <meta name="keywords" content={keywords} />
       <link rel="canonical" href={canonical} />
 
-      {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={pageType} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:image" content="https://anitech.rajlav.co.in/opengraph.jpg" />
-      <meta property="og:site_name" content="Rajlav Technologies" />
+      <meta property="og:image" content={url("/opengraph.jpg")} />
+      <meta property="og:site_name" content={site.name} />
+      <meta property="og:locale" content="en_IN" />
 
-      {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content="https://anitech.rajlav.co.in/opengraph.jpg" />
+      <meta name="twitter:image" content={url("/opengraph.jpg")} />
 
-      {/* Structured Data */}
-      <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
-      <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-      <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
-      <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+      {schemas.map((schemaItem, index) => (
+        <script key={index} type="application/ld+json">
+          {JSON.stringify(schemaItem)}
+        </script>
+      ))}
     </Helmet>
   );
 }

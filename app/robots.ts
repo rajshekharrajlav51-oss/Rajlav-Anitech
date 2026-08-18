@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { absoluteUrl } from './site-data'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://www.rajlav-anitech.com/sitemap.xml',
+    sitemap: absoluteUrl('/sitemap.xml'),
   }
 }

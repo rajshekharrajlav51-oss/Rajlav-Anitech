@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import LeadForm from "@/components/sections/LeadForm";
+import { url } from "@/lib/seo-data";
 
 export default function BlogPage() {
   return (
@@ -7,6 +8,7 @@ export default function BlogPage() {
       <SEO 
         title="Blog | Rajlav Technologies" 
         description="Insights and articles about AI development, software engineering, web technologies, and digital product development."
+        canonical={url("/blog")}
       />
       <div className="pt-32">
         <div className="container mx-auto px-4 py-16 md:py-24">

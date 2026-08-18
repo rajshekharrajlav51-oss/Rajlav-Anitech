@@ -6,13 +6,14 @@ import Services from "@/components/sections/Services";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Pricing from "@/components/sections/Pricing";
 import CTA from "@/components/sections/CTA";
+import FAQ from "@/components/sections/FAQ";
 import LeadForm from "@/components/sections/LeadForm";
 import { SEO } from "@/components/SEO";
 
 export default function Home() {
   return (
     <>
-      <SEO />
+      <SEO noFaqSchema={false} />
       <Hero />
       <Partners />
       <Trust />
@@ -20,6 +21,7 @@ export default function Home() {
       <Services />
       <HowItWorks />
       <Pricing />
+      <FAQ />
       <CTA />
       <LeadForm />
     </>

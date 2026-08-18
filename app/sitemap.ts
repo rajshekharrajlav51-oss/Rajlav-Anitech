@@ -1,25 +1,26 @@
 import { MetadataRoute } from 'next'
-
-const base = 'https://www.rajlav-anitech.com'
+import { absoluteUrl, portfolioItems, servicePages } from './site-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
+  const staticRoutes = [
     '/',
     '/services',
-    '/services/ai-development',
-    '/services/web-development',
-    '/services/mobile-app-development',
-    '/services/saas-development',
-    '/services/ui-ux-design',
     '/portfolio',
     '/pricing',
     '/about',
     '/contact',
     '/blog',
+    '/privacy-policy',
+    '/terms-and-conditions',
   ]
+  const serviceRoutes = servicePages.map((service) => `/services/${service.slug}`)
+  const portfolioRoutes = portfolioItems.map((item) => `/portfolio/${item.slug}`)
+  const routes = [...staticRoutes, ...serviceRoutes, ...portfolioRoutes]
 
   return routes.map((route) => ({
-    url: `${base}${route}`,
+    url: absoluteUrl(route),
     lastModified: new Date(),
+    changeFrequency: route === '/' ? 'weekly' : 'monthly',
+    priority: route === '/' ? 1 : route.startsWith('/services') ? 0.8 : 0.7,
   }))
 }

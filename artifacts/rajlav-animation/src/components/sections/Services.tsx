@@ -10,68 +10,20 @@ import {
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { services as seoServices } from "@/lib/seo-data";
 
 const services = [
-  {
-    icon: Globe,
-    title: "Web Development",
-    tagline: "High-performance web products built to scale.",
-    desc: "Custom business websites, SaaS platforms, admin dashboards, and enterprise portals designed for performance and scalability.",
-    stat: "100+",
-    statLabel: "projects delivered",
-    color: "from-primary/20 to-primary/5",
-    border: "border-primary/20",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    tagline: "Modern apps for Android, iOS, and cross-platform launches.",
-    desc: "Android, iOS, and cross-platform applications built with modern frameworks and optimized user experience.",
-    stat: "2x",
-    statLabel: "faster release cycles",
-    color: "from-amber-900/20 to-amber-900/5",
-    border: "border-amber-700/20",
-  },
-  {
-    icon: Bot,
-    title: "AI Solutions",
-    tagline: "Intelligent systems that automate real work.",
-    desc: "AI chatbots, AI assistants, workflow automation, predictive systems, and GPT-powered applications.",
-    stat: "24/7",
-    statLabel: "automation support",
-    color: "from-accent/15 to-accent/5",
-    border: "border-accent/20",
-  },
-  {
-    icon: DatabaseZap,
-    title: "ERP & CRM Systems",
-    tagline: "Software tailored to the way your business operates.",
-    desc: "Custom ERP, CRM, HRMS, and business management software tailored to your operations.",
-    stat: "10+",
-    statLabel: "industries served",
-    color: "from-amber-900/20 to-amber-900/5",
-    border: "border-amber-700/20",
-  },
-  {
-    icon: CloudCog,
-    title: "Cloud & DevOps",
-    tagline: "Secure infrastructure for reliable digital products.",
-    desc: "Secure deployment, cloud infrastructure, CI/CD pipelines, server management, and performance optimization.",
-    stat: "99.9%",
-    statLabel: "uptime-focused builds",
-    color: "from-yellow-900/20 to-yellow-900/5",
-    border: "border-yellow-700/20",
-  },
-  {
-    icon: BarChart3,
-    title: "Digital Transformation",
-    tagline: "Digitize operations and remove growth bottlenecks.",
-    desc: "Business automation, third-party integrations, process digitization, and operational efficiency solutions.",
-    stat: "+35%",
-    statLabel: "efficiency gains",
-    color: "from-orange-900/20 to-orange-900/5",
-    border: "border-orange-700/20",
-  },
+  ...seoServices.map((service, index) => ({
+    icon: [Bot, DatabaseZap, Globe, Smartphone, CloudCog, Zap, BarChart3, CloudCog, Globe][index],
+    title: service.navTitle,
+    tagline: service.title,
+    desc: service.summary,
+    stat: "Service",
+    statLabel: "Rajlav Technologies",
+    href: `/services/${service.slug}`,
+    color: index % 2 === 0 ? "from-primary/20 to-primary/5" : "from-amber-900/20 to-amber-900/5",
+    border: index % 2 === 0 ? "border-primary/20" : "border-amber-700/20",
+  })),
 ];
 
 export default function Services() {
@@ -121,7 +73,8 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className={`relative p-7 rounded-2xl bg-gradient-to-br ${svc.color} border ${svc.border} hover:border-opacity-60 transition-all group overflow-hidden`}
+            className={`relative p-7 rounded-2xl bg-gradient-to-br ${svc.color} border ${svc.border} hover:border-opacity-60 transition-all group overflow-hidden`}
+              onClick={() => window.location.assign(svc.href)}
             >
               <div className="w-12 h-12 rounded-xl bg-background/60 border border-white/8 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                 <svc.icon className="w-6 h-6 text-primary" />

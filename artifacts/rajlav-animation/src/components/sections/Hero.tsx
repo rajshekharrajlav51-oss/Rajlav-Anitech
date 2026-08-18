@@ -1,16 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Code2, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const CALENDLY_URL = "https://calendly.com/anitech_rajlav/new-meeting";
-const WHATSAPP_URL =
-  "https://wa.me/916205834086?text=Hi! I want to discuss a software, AI, web, or mobile app project.";
-
 const trustPills = [
-  "100+ Projects Delivered",
-  "50+ Happy Clients",
-  "10+ Industries Served",
-  "24/7 Technical Support",
+  "Custom Software Development",
+  "AI Development & Automation",
+  "Web & Mobile App Development",
+  "SaaS & Platform Development",
 ];
 
 export default function Hero() {
@@ -40,13 +37,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-gray-200 mb-10 shadow-[0_0_20px_rgba(251,191,36,0.1)]"
         >
           <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse shrink-0" />
-          Trusted by startups, enterprises, and growing businesses
-          <div className="flex ml-1">
-            {[1, 2, 3, 4, 5].map((s) => (
-              <Star key={s} className="w-3 h-3 fill-amber-400 text-amber-400" />
-            ))}
-          </div>
-          <span className="text-amber-300 font-semibold">4.8</span>
+          Rajlav Technologies serves Noida, Delhi NCR, and remote clients
         </motion.div>
 
         <motion.h1
@@ -55,10 +46,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tighter text-white mb-6 leading-[1.05]"
         >
-          Build AI-Powered Software, Websites &
+          AI & Software Development Company in Noida
           <br className="hidden sm:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_4s_ease_infinite]">
-            Digital Products That Scale
+            Rajlav Technologies
           </span>
         </motion.h1>
 
@@ -68,7 +59,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-10 max-w-4xl mx-auto font-normal leading-relaxed"
         >
-          We help startups, educational platforms, healthcare providers, finance companies, and enterprises build custom software, AI solutions, web applications, and mobile apps that drive measurable business growth.
+          We help startups, educational platforms, healthcare providers, finance companies, and enterprises build AI development, custom software development, web development, mobile app development, SaaS development, FinTech solutions, healthcare technology, EdTech solutions, and business automation.
         </motion.p>
 
         <motion.div
@@ -89,12 +80,7 @@ export default function Hero() {
             size="lg"
             variant="outline"
             className="w-full sm:w-auto h-14 px-9 text-lg border-white/15 text-white hover:bg-white/5 hover:border-primary/40 transition-all font-semibold"
-            onClick={() =>
-              window.open(
-                WHATSAPP_URL,
-                "_blank",
-              )
-            }
+            onClick={() => window.location.assign("/portfolio")}
           >
             <Code2 className="mr-2 w-4 h-4" />
             View Portfolio

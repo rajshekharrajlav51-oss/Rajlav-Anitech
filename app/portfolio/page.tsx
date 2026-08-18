@@ -1,35 +1,50 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import { absoluteUrl, portfolioItems, site } from '../site-data'
 
 export const metadata = {
-  title: 'Portfolio — Rajlav Anitech',
-  description: 'Selected projects and case studies demonstrating our AI, web, mobile and SaaS work.',
-  alternates: { canonical: 'https://www.rajlav-anitech.com/portfolio' },
+  title: 'Portfolio and Case Studies',
+  description: 'Rajlav Technologies portfolio across EdTech, healthcare software, FinTech CRM, AI automation, payment systems and workflow reporting.',
+  alternates: { canonical: absoluteUrl('/portfolio') },
 }
 
 const breadcrumb = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
-  'itemListElement': [
-    { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.rajlav-anitech.com' },
-    { '@type': 'ListItem', 'position': 2, 'name': 'Portfolio', 'item': 'https://www.rajlav-anitech.com/portfolio' }
-  ]
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: site.domain },
+    { '@type': 'ListItem', position: 2, name: 'Portfolio', item: absoluteUrl('/portfolio') },
+  ],
 }
 
-export default function PortfolioPage(){
+export default function PortfolioPage() {
   return (
-    <section className="container mx-auto py-16">
+    <section className="container section-space">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <h1 className="text-3xl font-bold text-white">Portfolio</h1>
-      <p className="mt-3 text-gray-300">Selected projects showing outcomes, architecture, and measurable results from our work across AI, web and mobile.</p>
-      <div className="mt-8 grid gap-6 sm:grid-cols-2">
-        <article className="p-4 bg-gray-800 rounded">
-          <h3 className="font-semibold">AI-powered analytics platform</h3>
-          <p className="mt-2 text-sm text-gray-300">Built a real-time analytics engine with ML-based anomaly detection and automated alerts.</p>
-        </article>
-        <article className="p-4 bg-gray-800 rounded">
-          <h3 className="font-semibold">Next.js e-commerce platform</h3>
-          <p className="mt-2 text-sm text-gray-300">Performance-first storefront with improved LCP and conversion rates.</p>
-        </article>
+      <h1 className="section-title">Rajlav Technologies Portfolio</h1>
+      <p className="section-lead">
+        Explore selected case-study concepts showing how Rajlav Technologies approaches AI, custom software, web applications, SaaS platforms and business automation.
+      </p>
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {portfolioItems.map((item) => (
+          <article className="premium-card overflow-hidden" key={item.slug}>
+            <Image src={item.image} alt={item.alt} width={640} height={400} loading="lazy" className="mb-4 rounded-md border border-white/10" />
+            <p className="text-xs font-semibold uppercase tracking-wide text-primary">{item.industry}</p>
+            <h2 className="mt-2 text-xl font-bold text-white">{item.title}</h2>
+            <p className="mt-1 text-sm font-semibold text-gray-200">{item.category}</p>
+            <p className="mt-3 text-sm leading-6 text-gray-300">{item.description}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {item.services.map((service) => (
+                <Link href={`/services/${service}`} className="rounded-full border border-primary/25 px-3 py-1 text-xs text-primary" key={service}>
+                  {service.replace(/-/g, ' ')}
+                </Link>
+              ))}
+            </div>
+            <Link href={`/portfolio/${item.slug}`} className="mt-5 inline-block text-sm font-semibold text-primary">
+              Read case study
+            </Link>
+          </article>
+        ))}
       </div>
     </section>
   )

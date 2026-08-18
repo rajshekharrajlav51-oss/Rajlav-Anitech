@@ -8,6 +8,7 @@ type PortfolioVideoCardProps = {
   description: string;
   videoUrl: string;
   thumbnail: string;
+  alt?: string;
   category?: string;
   duration?: string;
   accentClassName?: string;
@@ -37,6 +38,7 @@ export default function PortfolioVideoCard({
   description,
   videoUrl,
   thumbnail,
+  alt,
   category,
   duration,
   accentClassName = "from-primary/70 via-amber-500/45 to-orange-500/50",
@@ -51,6 +53,11 @@ export default function PortfolioVideoCard({
   const handleCardClick = () => {
     if (isInternalLink) {
       document.querySelector(videoUrl)?.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+
+    if (videoUrl.startsWith("/")) {
+      window.location.assign(videoUrl);
       return;
     }
 
@@ -97,7 +104,7 @@ export default function PortfolioVideoCard({
           <div className="relative aspect-[16/10] overflow-hidden">
             <img
               src={thumbnail}
-              alt={title}
+              alt={alt ?? title}
               className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             />
             <div className={`absolute inset-0 bg-gradient-to-br ${accentClassName} opacity-80 mix-blend-screen transition-opacity duration-500 group-hover:opacity-95`} />
