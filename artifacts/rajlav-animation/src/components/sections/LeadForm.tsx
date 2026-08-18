@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight, CheckCircle2, Lock } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -21,10 +21,11 @@ const REDIRECT_DELAY_MS = 1800;
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  whatsapp: z.string().min(10, "Enter a valid WhatsApp number"),
   email: z.string().email("Enter a valid email"),
-  budget: z.string().min(1, "Please select a budget"),
-  projectType: z.string().min(1, "Please select a project type"),
+  phone: z.string().min(10, "Enter a valid phone number"),
+  company: z.string().optional(),
+  need: z.string().min(1, "Please select what you need"),
+  message: z.string().min(10, "Tell us a little about your project"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -33,21 +34,21 @@ function buildWhatsAppMessage(data: FormData) {
   return [
     "Hi Rajlav Technologies,",
     "",
-    "I would like to book a free technology consultation.",
+    "I would like to discuss a project enquiry.",
     "",
     `Name: ${data.name}`,
-    `Phone: ${data.whatsapp}`,
+    `Phone: ${data.phone}`,
     `Email: ${data.email}`,
-    `Budget: ${data.budget}`,
-    `Project Type: ${data.projectType}`,
+    `Company: ${data.company || "Not provided"}`,
+    `What I need: ${data.need}`,
+    `Message: ${data.message}`,
   ].join("\n");
 }
 
 export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [redirecting, setRedirecting] = useState(false);
-  const [budget, setBudget] = useState("");
-  const [projectType, setProjectType] = useState("");
+  const [need, setNeed] = useState("");
 
   const {
     register,
@@ -73,9 +74,9 @@ export default function LeadForm() {
   const isBusy = isSubmitting || redirecting;
 
   return (
-    <section id="lead-form" className="py-32 bg-card border-t border-white/5 relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
+    <section id="lead-form" className="py-16 sm:py-20 lg:py-32 bg-card border-t border-white/5 relative overflow-hidden">
+      <div className="absolute bottom-0 right-0 w-[min(500px,90vw)] h-[320px] sm:h-[500px] bg-accent/5 blur-[90px] sm:blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[240px] sm:w-[400px] h-[240px] sm:h-[400px] bg-primary/5 blur-[80px] sm:blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container px-4 mx-auto relative z-10">
         <div className="max-w-2xl mx-auto">
@@ -85,11 +86,12 @@ export default function LeadForm() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-4">
-              Book Your Free Technology Consultation
+            <p className="text-primary text-xs font-semibold uppercase tracking-[0.24em] mb-4">LET'S TALK</p>
+            <h2 className="text-[clamp(1.9rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white mb-4">
+              Have an Idea? Let's Discuss It.
             </h2>
-            <p className="text-xl text-gray-400">
-              Tell us what you want to build. We&apos;ll review your goals and guide you to the right software, AI, web, or mobile solution.
+            <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-7">
+              Share a few details about your project, business challenge or idea. Our team will get back to you to understand what you need and discuss the best way forward.
             </p>
           </motion.div>
 
@@ -114,10 +116,10 @@ export default function LeadForm() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               onSubmit={handleSubmit(onSubmit)}
-              className="p-8 md:p-12 rounded-3xl bg-background border border-card-border shadow-[0_0_60px_-20px_rgba(251,191,36,0.25)] space-y-6"
+              className="p-5 sm:p-8 md:p-12 rounded-3xl bg-background border border-card-border shadow-[0_0_60px_-20px_rgba(251,191,36,0.25)] space-y-6"
             >
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-white font-medium">Full Name</Label>
+                <Label htmlFor="name" className="text-white font-medium">Name</Label>
                 <Input
                   id="name"
                   placeholder="Your full name"
@@ -128,18 +130,7 @@ export default function LeadForm() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="whatsapp" className="text-white font-medium">WhatsApp Number</Label>
-                <Input
-                  id="whatsapp"
-                  placeholder="+91 98765 43210"
-                  className="h-12 bg-card border-card-border text-white placeholder:text-gray-500 focus:border-primary/50"
-                  {...register("whatsapp")}
-                />
-                {errors.whatsapp && <p className="text-red-400 text-sm">{errors.whatsapp.message}</p>}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-white font-medium">Email Address</Label>
+                <Label htmlFor="email" className="text-white font-medium">Email</Label>
                 <Input
                   id="email"
                   type="email"
@@ -151,51 +142,62 @@ export default function LeadForm() {
               </div>
 
               <div className="space-y-2">
-                <Label className="text-white font-medium">Budget Range</Label>
-                <Select
-                  onValueChange={(val) => {
-                    setBudget(val);
-                    setValue("budget", val, { shouldValidate: true });
-                  }}
-                  value={budget}
-                >
-                  <SelectTrigger className="h-12 bg-card border-card-border text-white [&>span]:text-white data-[placeholder]:text-gray-500 focus:border-primary/50">
-                    <SelectValue placeholder="Select your budget" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border-card-border text-white">
-                    <SelectItem value="Under INR 50,000">Under INR 50,000</SelectItem>
-                    <SelectItem value="INR 50,000 - INR 2,00,000">INR 50,000 - INR 2,00,000</SelectItem>
-                    <SelectItem value="INR 2,00,000 - INR 5,00,000">INR 2,00,000 - INR 5,00,000</SelectItem>
-                    <SelectItem value="INR 5,00,000+">INR 5,00,000+</SelectItem>
-                  </SelectContent>
-                </Select>
-                {errors.budget && <p className="text-red-400 text-sm">{errors.budget.message}</p>}
+                <Label htmlFor="phone" className="text-white font-medium">Phone</Label>
+                <Input
+                  id="phone"
+                  placeholder="+91 98765 43210"
+                  className="h-12 bg-card border-card-border text-white placeholder:text-gray-500 focus:border-primary/50"
+                  {...register("phone")}
+                />
+                {errors.phone && <p className="text-red-400 text-sm">{errors.phone.message}</p>}
               </div>
 
               <div className="space-y-2">
-                <Label className="text-white font-medium">Project Type</Label>
+                <Label htmlFor="company" className="text-white font-medium">Company</Label>
+                <Input
+                  id="company"
+                  placeholder="Company name"
+                  className="h-12 bg-card border-card-border text-white placeholder:text-gray-500 focus:border-primary/50"
+                  {...register("company")}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label className="text-white font-medium">What do you need?</Label>
                 <Select
                   onValueChange={(val) => {
-                    setProjectType(val);
-                    setValue("projectType", val, { shouldValidate: true });
+                    setNeed(val);
+                    setValue("need", val, { shouldValidate: true });
                   }}
-                  value={projectType}
+                  value={need}
                 >
                   <SelectTrigger className="h-12 bg-card border-card-border text-white [&>span]:text-white data-[placeholder]:text-gray-500 focus:border-primary/50">
                     <SelectValue placeholder="What do you want to build?" />
                   </SelectTrigger>
                   <SelectContent className="bg-card border-card-border text-white">
+                    <SelectItem value="Custom Software">Custom Software</SelectItem>
+                    <SelectItem value="AI Solution / Automation">AI Solution / Automation</SelectItem>
                     <SelectItem value="Website / Web App">Website / Web App</SelectItem>
                     <SelectItem value="Mobile App">Mobile App</SelectItem>
-                    <SelectItem value="AI Solution">AI Solution</SelectItem>
-                    <SelectItem value="ERP / CRM System">ERP / CRM System</SelectItem>
-                    <SelectItem value="Cloud / DevOps">Cloud / DevOps</SelectItem>
-                    <SelectItem value="Digital Transformation">Digital Transformation</SelectItem>
+                    <SelectItem value="SaaS Platform">SaaS Platform</SelectItem>
+                    <SelectItem value="Business Automation">Business Automation</SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.projectType && (
-                  <p className="text-red-400 text-sm">{errors.projectType.message}</p>
+                {errors.need && (
+                  <p className="text-red-400 text-sm">{errors.need.message}</p>
                 )}
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-white font-medium">Message</Label>
+                <textarea
+                  id="message"
+                  placeholder="Tell us about your project, business challenge or idea"
+                  rows={5}
+                  className="w-full rounded-md border border-card-border bg-card px-3 py-3 text-white placeholder:text-gray-500 focus:border-primary/50 focus:outline-none"
+                  {...register("message")}
+                />
+                {errors.message && <p className="text-red-400 text-sm">{errors.message.message}</p>}
               </div>
 
               <Button
@@ -204,7 +206,7 @@ export default function LeadForm() {
                 disabled={isBusy}
                 className="w-full h-14 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.45)] hover:shadow-[0_0_50px_-5px_rgba(251,191,36,0.6)] transition-all disabled:opacity-80"
               >
-                {redirecting ? "Redirecting to booking..." : isSubmitting ? "Sending..." : "Book Free Consultation"}
+                {redirecting ? "Preparing your enquiry..." : isSubmitting ? "Sending..." : "Send Project Enquiry"}
                 {!isBusy && <ArrowRight className="ml-2 w-5 h-5" />}
               </Button>
 
@@ -213,11 +215,6 @@ export default function LeadForm() {
                   Opening WhatsApp and taking you to the booking page...
                 </p>
               )}
-
-              <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
-                <Lock className="w-4 h-4" />
-                <span>100% private. We never spam. Your info is safe with us.</span>
-              </div>
             </motion.form>
           )}
         </div>

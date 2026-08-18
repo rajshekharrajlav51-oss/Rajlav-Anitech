@@ -12,6 +12,7 @@ type PortfolioVideoCardProps = {
   category?: string;
   duration?: string;
   accentClassName?: string;
+  tags?: string[];
 };
 
 function getYouTubeVideoId(url: string) {
@@ -42,6 +43,7 @@ export default function PortfolioVideoCard({
   category,
   duration,
   accentClassName = "from-primary/70 via-amber-500/45 to-orange-500/50",
+  tags = [],
 }: PortfolioVideoCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const youtubeVideoId = getYouTubeVideoId(videoUrl);
@@ -93,7 +95,7 @@ export default function PortfolioVideoCard({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 18 }}
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/35 hover:shadow-[0_32px_90px_-42px_rgba(251,191,36,0.35)]"
+        className="group w-full overflow-hidden rounded-[22px] sm:rounded-[28px] border border-white/10 bg-white/[0.03] shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)] transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/35 hover:shadow-[0_32px_90px_-42px_rgba(251,191,36,0.35)]"
       >
         <button
           type="button"
@@ -101,7 +103,7 @@ export default function PortfolioVideoCard({
           className="block w-full text-left"
           aria-label={`View ${title}`}
         >
-          <div className="relative aspect-[16/10] overflow-hidden">
+          <div className="relative aspect-video overflow-hidden">
             <img
               src={thumbnail}
               alt={alt ?? title}
@@ -151,13 +153,25 @@ export default function PortfolioVideoCard({
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-primary sm:text-2xl">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-primary">
                 {title}
               </h3>
-              <p className="max-w-md text-sm leading-6 text-white/62 sm:text-[15px]">
+              <p className="max-w-md text-sm sm:text-[15px] leading-6 text-white/62">
                 {description}
               </p>
             </div>
+
+            {tags.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span key={tag} className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+
+            <span className="inline-flex text-sm font-semibold text-primary">View Case Study</span>
           </div>
         </button>
       </motion.article>

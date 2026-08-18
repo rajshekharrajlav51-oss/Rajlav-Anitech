@@ -3,7 +3,7 @@ export const site = {
   alternateName: "Rajlav Anitech",
   domain: "https://anitech.rajlav.co.in",
   description:
-    "Rajlav Technologies builds AI solutions, custom software, websites, mobile apps, SaaS platforms and business automation solutions for startups and enterprises.",
+    "Rajlav Technologies designs and builds custom software, AI solutions, web and mobile applications, SaaS platforms, and business automation systems for modern businesses.",
   shortDescription:
     "AI, software, web, mobile, SaaS and business automation solutions for startups and enterprises.",
   email: "hello@anitech.rajlav.co.in",
@@ -21,7 +21,7 @@ export const services = [
     navTitle: "AI Development",
     meta: "AI development services in Noida for automation, LLM integrations, analytics, chatbots and intelligent business workflows.",
     summary:
-      "AI assistants, LLM integrations, document automation, analytics and workflow systems built for practical business use.",
+      "Build AI applications, assistants, intelligent workflows and automation systems that solve real business problems.",
     sections: [
       "We build AI assistants, retrieval systems, chatbot workflows, document automation and predictive dashboards for teams that need faster decisions.",
       "Every AI project starts with business goals, available data, integration needs and risk review before production planning begins.",
@@ -34,7 +34,7 @@ export const services = [
     navTitle: "Software Development",
     meta: "Custom software development company in Noida building secure business applications, dashboards, portals and scalable digital products.",
     summary:
-      "Custom business software, dashboards, CRMs, portals and internal tools designed around real workflows.",
+      "Purpose-built software for businesses that need more flexibility than off-the-shelf tools can provide.",
     sections: [
       "We plan, design and develop custom software for startups, educational platforms, healthcare providers, finance teams and enterprises.",
       "Our team focuses on maintainable architecture, role-based access, clean data flows, APIs, testing and deployment support.",
@@ -47,7 +47,7 @@ export const services = [
     navTitle: "Web Development",
     meta: "Web development company in Noida creating SEO-friendly websites, web applications, portals and conversion-focused digital experiences.",
     summary:
-      "Fast websites and web applications with semantic structure, responsive design, integrations and search-friendly foundations.",
+      "Fast, responsive and scalable websites, web applications, dashboards and business platforms.",
     sections: [
       "Our web development services cover business websites, landing pages, web applications, customer portals, admin dashboards and API integrations.",
       "We implement clean HTML, metadata, structured data, image optimization, mobile-first layouts and performance-minded frontend engineering.",
@@ -60,7 +60,7 @@ export const services = [
     navTitle: "Mobile App Development",
     meta: "Mobile app development company in Noida building Android, iOS and cross-platform apps for startups and business workflows.",
     summary:
-      "Android, iOS and cross-platform mobile apps backed by reliable APIs, practical UX and release planning.",
+      "User-friendly Android and iOS applications designed around your customers and business workflows.",
     sections: [
       "We build customer apps, internal apps, learning apps, healthcare workflows, finance tools and mobile dashboards.",
       "Projects can include UX planning, authentication, notifications, offline-ready workflows, API integration, testing and deployment support.",
@@ -73,7 +73,7 @@ export const services = [
     navTitle: "SaaS Development",
     meta: "SaaS development company in Noida building subscription platforms, multi-user products, dashboards and scalable cloud software.",
     summary:
-      "SaaS platforms with user management, dashboards, subscriptions, integrations, analytics and operational workflows.",
+      "Multi-user, subscription-based software platforms built for recurring revenue and long-term scalability.",
     sections: [
       "We plan tenant structure, permissions, onboarding, admin controls, billing readiness and support workflows early in SaaS projects.",
       "Rajlav Technologies builds MVPs, improves existing SaaS products and creates internal platforms that can grow into commercial software.",
@@ -86,7 +86,7 @@ export const services = [
     navTitle: "Business Automation",
     meta: "Business automation company in Noida creating workflow automation, reporting systems, AI assistants and integrated business tools.",
     summary:
-      "Workflow automation, reporting systems, approvals, notifications and AI-assisted operations for growing businesses.",
+      "Connect tools, automate repetitive processes and reduce manual work across your organization.",
     sections: [
       "Automation work often includes CRM workflows, lead routing, reporting, document processing, inventory updates and payment records.",
       "We map the existing process first, then build software that reduces manual work without hiding important business controls.",
@@ -99,7 +99,7 @@ export const services = [
     navTitle: "FinTech Development",
     meta: "FinTech software development for CRMs, loan workflows, payment systems, dashboards and secure finance business applications.",
     summary:
-      "Finance technology tools for CRMs, loan workflows, payment records, dashboards and secure operational systems.",
+      "Custom platforms for finance, CRM, loan workflows, payments, customer management and financial operations.",
     sections: [
       "FinTech software can include loan management, customer portals, payment reconciliation, financial dashboards and approval workflows.",
       "We focus on clear records, reliable integrations, role-based access and audit-friendly behavior.",
@@ -125,7 +125,7 @@ export const services = [
     navTitle: "EdTech Development",
     meta: "EdTech software development for learning platforms, LMS features, student dashboards, content workflows and education apps.",
     summary:
-      "Learning platforms, LMS dashboards, student progress, course workflows and education apps.",
+      "Learning platforms, course management systems, student dashboards, assessments and digital education products.",
     sections: [
       "EdTech projects can include course platforms, assessments, video learning, mobile learning and admin portals.",
       "We balance learner experience with educator workflows so the platform is useful for both sides of the classroom.",
@@ -138,74 +138,79 @@ export const portfolio = [
   {
     slug: "edtech-learning-platform",
     title: "EdTech Learning Platform",
-    category: "Custom EdTech Software Development",
+    category: "EdTech",
     industry: "Education Technology",
     thumbnail: "/portfolio-edtech-platform.svg",
     alt: "Rajlav Technologies EdTech learning platform dashboard",
-    description: "Course management, student progress, assessments, educator workflows and mobile-ready learning access.",
+    description: "A complete digital learning platform designed for courses, student management, assessments, analytics and engaging online education.",
+    tags: ["EdTech", "Web Platform", "AI Learning"],
     services: ["edtech-development", "software-development"],
   },
   {
     slug: "healthcare-management-system",
     title: "Healthcare Management System",
-    category: "Healthcare Management Software",
+    category: "Healthcare",
     industry: "Healthcare Technology",
     thumbnail: "/portfolio-healthcare-system.svg",
     alt: "Rajlav Technologies healthcare management software interface",
-    description: "Appointments, patient workflow visibility, staff coordination and healthcare management reporting.",
+    description: "A centralized healthcare platform for managing appointments, patient records, billing, reporting and day-to-day operational workflows.",
+    tags: ["Healthcare", "Management System", "Automation"],
     services: ["healthcare-software", "mobile-app-development"],
   },
   {
     slug: "finance-crm",
     title: "Finance CRM Platform",
-    category: "FinTech CRM & Loan Management Platform",
+    category: "FinTech",
     industry: "Finance and FinTech",
     thumbnail: "/portfolio-finance-crm.svg",
     alt: "Rajlav Technologies finance CRM platform for loan management",
-    description: "Lead tracking, loan stages, customer records, task follow-ups and management visibility for finance teams.",
+    description: "A business-focused CRM platform for lead management, customer onboarding, loan workflows, financial operations and sales teams.",
+    tags: ["FinTech", "CRM", "Loan Management"],
     services: ["fintech-development", "saas-development"],
   },
   {
     slug: "ai-business-assistant",
     title: "AI Business Assistant",
-    category: "AI Business Automation Assistant",
+    category: "AI Automation",
     industry: "Business Automation",
     thumbnail: "/portfolio-ai-assistant.svg",
     alt: "Rajlav Technologies AI business automation assistant",
-    description: "AI-assisted document search, summaries and workflow actions for business teams.",
+    description: "An AI-powered business assistant designed to handle customer queries, automate repetitive workflows and support everyday business operations.",
+    tags: ["AI", "Automation", "Business Assistant"],
     services: ["ai-development", "business-automation"],
   },
   {
     slug: "payments-inventory",
-    title: "Payments & Inventory",
-    category: "Payment & Inventory Management Software",
+    title: "Payments & Inventory Platform",
+    category: "Business Operations",
     industry: "Commerce Operations",
     thumbnail: "/portfolio-ecommerce-platform.svg",
     alt: "Rajlav Technologies payment and inventory management software",
-    description: "Inventory tracking, payment records, order visibility and commerce operations controls.",
+    description: "A unified platform for managing payments, inventory, transactions and essential business operations from one place.",
+    tags: ["Payments", "Inventory", "Business Software"],
     services: ["web-development", "fintech-development"],
   },
   {
     slug: "reporting-automation",
-    title: "Reporting & Automation",
-    category: "Business Reporting & Workflow Automation",
+    title: "Reporting & Workflow Automation",
+    category: "Automation",
     industry: "Enterprise Operations",
     thumbnail: "/portfolio-enterprise-erp.svg",
     alt: "Rajlav Technologies business reporting and workflow automation dashboard",
-    description: "Operational dashboards, recurring reports, approvals and cross-team workflow visibility.",
+    description: "A business reporting and automation solution that helps teams organize operational data, generate reports and streamline repetitive workflows.",
+    tags: ["Automation", "Analytics", "Reporting"],
     services: ["business-automation", "saas-development"],
   },
 ];
 
 export const faqs = [
-  ["What does Rajlav Technologies do?", "Rajlav Technologies builds AI solutions, custom software, websites, mobile apps, SaaS platforms and business automation systems."],
-  ["Does Rajlav Technologies develop custom software?", "Yes. We design and develop custom business software, dashboards, portals, CRMs and workflow tools based on project requirements."],
-  ["Does Rajlav Technologies provide AI development services?", "Yes. We build AI assistants, automation workflows, LLM integrations, analytics systems and practical AI features for business use."],
-  ["Can Rajlav Technologies build SaaS platforms?", "Yes. We build SaaS products with user management, dashboards, billing readiness, integrations and scalable software architecture."],
-  ["How much does custom software development cost?", "Cost depends on scope, features, integrations, design complexity and timeline. We usually begin with a discovery discussion before estimating."],
-  ["Does Rajlav Technologies work with startups?", "Yes. We work with startups, growing businesses, educational platforms, healthcare providers, finance companies and enterprise teams."],
-  ["Do you provide web and mobile app development?", "Yes. We build responsive websites, web applications, Android and iOS apps, and cross-platform mobile products."],
-  ["Do you serve businesses outside Noida?", "Yes. Rajlav Technologies serves businesses in Noida, Delhi NCR, Uttar Pradesh and remote clients across India and abroad."],
+  ["What does Rajlav Technologies do?", "Rajlav Technologies builds custom software, AI solutions, web and mobile applications, SaaS platforms and business automation systems."],
+  ["Can you build software from scratch?", "Yes. We can take a product from requirements and UI/UX through development, testing, deployment and future improvements."],
+  ["Do you work with startups?", "Yes. We work with startups and growing businesses that need technology to validate, launch and scale their products."],
+  ["Can you integrate AI into an existing application?", "Yes. AI capabilities can be integrated into existing applications depending on the product, data and business requirements."],
+  ["Do you build SaaS platforms?", "Yes. We can develop SaaS products with user management, subscriptions, dashboards, APIs, integrations and scalable backend infrastructure."],
+  ["Do you provide ongoing support?", "Yes. Ongoing maintenance, improvements, feature development and technical support can be provided depending on the project requirements."],
+  ["Where does Rajlav Technologies operate?", "Rajlav Technologies is based in Noida, Uttar Pradesh and works with businesses in Delhi NCR and clients beyond the region."],
 ];
 
 export const url = (path = "") => `${site.domain}${path}`;

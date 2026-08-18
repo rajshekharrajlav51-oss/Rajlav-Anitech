@@ -17,6 +17,8 @@ type PortfolioItem = {
   thumbnail: string;
   videoUrl: string;
   accentClassName: string;
+  tags?: string[];
+  alt?: string;
 };
 
 const categories: Category[] = ["All", "Web", "Mobile", "AI", "Enterprise"];
@@ -37,6 +39,8 @@ const portfolio: PortfolioItem[] = [
     description: item.description,
     thumbnail: item.thumbnail,
     videoUrl: `/portfolio/${item.slug}`,
+    tags: item.tags,
+    alt: item.alt,
     accentClassName: "from-amber-700/75 via-orange-600/45 to-primary/35",
   })),
 ];
@@ -48,7 +52,7 @@ export default function Portfolio() {
     active === "All" ? portfolio : portfolio.filter((item) => item.category === active);
 
   return (
-    <section id="portfolio" className="relative py-28 sm:py-32">
+    <section id="portfolio" className="relative py-16 sm:py-20 lg:py-32">
       <div className="pointer-events-none absolute inset-x-0 top-8 mx-auto h-[340px] w-[min(72rem,92vw)] rounded-full bg-primary/10 blur-[120px]" />
 
       <div className="container relative z-10 mx-auto px-4">
@@ -60,7 +64,7 @@ export default function Portfolio() {
             className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary"
           >
             <Play className="h-3.5 w-3.5 fill-current" />
-            Featured Projects
+            SELECTED WORK
           </motion.div>
 
           <motion.h2
@@ -68,7 +72,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="mx-auto mb-4 max-w-4xl text-4xl font-extrabold tracking-[-0.04em] text-white sm:text-5xl md:text-6xl"
+            className="mx-auto mb-4 max-w-4xl text-[clamp(1.9rem,7vw,3.75rem)] font-extrabold tracking-[-0.04em] text-white"
           >
             Technology Projects That Deliver Real Results
           </motion.h2>
@@ -80,7 +84,7 @@ export default function Portfolio() {
             transition={{ delay: 0.1 }}
             className="mx-auto max-w-2xl text-base leading-7 text-white/60 sm:text-lg"
           >
-            A showcase of software, AI, web, mobile, and enterprise solutions built for startups and growing businesses.
+            Explore some of the digital platforms, automation systems and business applications we've designed and developed.
           </motion.p>
         </div>
 
@@ -116,10 +120,11 @@ export default function Portfolio() {
                 description={item.description}
                 videoUrl={item.videoUrl}
                 thumbnail={item.thumbnail}
-                alt={seoPortfolio.find((portfolioItem) => portfolioItem.title === item.title)?.alt}
+                alt={item.alt}
                 category={item.category}
                 duration={item.duration}
                 accentClassName={item.accentClassName}
+                tags={item.tags}
               />
             ))}
           </AnimatePresence>
@@ -129,7 +134,7 @@ export default function Portfolio() {
           <Button
             variant="outline"
             size="lg"
-            className="border-white/15 bg-white/[0.03] text-white hover:border-primary/40 hover:bg-white/[0.06]"
+            className="w-full max-w-[320px] sm:w-auto border-white/15 bg-white/[0.03] text-white hover:border-primary/40 hover:bg-white/[0.06]"
             onClick={() =>
               document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
             }

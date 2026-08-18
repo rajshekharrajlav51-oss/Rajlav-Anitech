@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { services as seoServices } from "@/lib/seo-data";
 
 const services = [
-  ...seoServices.map((service, index) => ({
+  ...seoServices.filter((service) => service.slug !== "healthcare-software").map((service, index) => ({
     icon: [Bot, DatabaseZap, Globe, Smartphone, CloudCog, Zap, BarChart3, CloudCog, Globe][index],
     title: service.navTitle,
     tagline: service.title,
@@ -28,12 +28,12 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="work" className="py-32 bg-card border-y border-white/5 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[600px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/4 blur-[100px] rounded-full pointer-events-none" />
+    <section id="work" className="py-16 sm:py-20 lg:py-32 bg-card border-y border-white/5 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[min(600px,90vw)] h-[360px] sm:h-[500px] bg-primary/5 blur-[90px] sm:blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[240px] sm:w-[400px] h-[240px] sm:h-[400px] bg-accent/4 blur-[80px] sm:blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container px-4 mx-auto relative z-10">
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -41,27 +41,25 @@ export default function Services() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-5"
           >
             <Zap className="w-3.5 h-3.5" />
-            Services
+            OUR SERVICES
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-5"
+            className="text-[clamp(1.9rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white mb-5"
           >
-            Technology Services Built To
-            <br />
-            Accelerate Growth
+            Technology Services Built for Business Growth
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-400 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed"
           >
-            From custom software to AI automation, we create scalable digital solutions that improve efficiency, customer experience, and revenue.
+            From your first product idea to a production-ready platform, we provide the technology expertise needed to build, launch and improve digital products.
           </motion.p>
         </div>
 
@@ -73,7 +71,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-            className={`relative p-7 rounded-2xl bg-gradient-to-br ${svc.color} border ${svc.border} hover:border-opacity-60 transition-all group overflow-hidden`}
+              className={`relative w-full p-5 sm:p-7 rounded-2xl bg-gradient-to-br ${svc.color} border ${svc.border} hover:border-opacity-60 transition-all group overflow-hidden cursor-pointer`}
               onClick={() => window.location.assign(svc.href)}
             >
               <div className="w-12 h-12 rounded-xl bg-background/60 border border-white/8 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
@@ -81,13 +79,13 @@ export default function Services() {
               </div>
 
               <div className="absolute top-5 right-5 text-right">
-                <div className="text-xl font-extrabold text-white">{svc.stat}</div>
-                <div className="text-[10px] text-gray-500 leading-tight max-w-[90px] text-right">
+                <div className="text-sm font-extrabold text-white">{svc.stat}</div>
+                <div className="text-[10px] text-gray-500 leading-tight max-w-[90px] text-right hidden sm:block">
                   {svc.statLabel}
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-1">{svc.title}</h3>
+              <h3 className="text-xl font-bold text-white mb-1 pr-10 sm:pr-0">{svc.title}</h3>
               <p className="text-xs font-semibold text-primary mb-3">{svc.tagline}</p>
               <p className="text-gray-400 text-sm leading-relaxed">{svc.desc}</p>
             </motion.div>
@@ -97,7 +95,7 @@ export default function Services() {
         <div className="text-center">
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] transition-all"
+            className="w-full max-w-[340px] sm:w-auto bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.4)] transition-all"
             onClick={() =>
               document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
             }

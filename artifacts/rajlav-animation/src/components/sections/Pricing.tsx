@@ -360,8 +360,8 @@ export default function Pricing() {
   }, []);
 
   return (
-    <section id="pricing" className="relative overflow-hidden border-y border-white/5 bg-card py-32">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[900px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[140px]" />
+    <section id="pricing" className="relative overflow-hidden border-y border-white/5 bg-card py-16 sm:py-20 lg:py-32">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] sm:h-[900px] w-[min(900px,95vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[100px] sm:blur-[140px]" />
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="mb-16 text-center">
@@ -379,7 +379,7 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="mb-5 text-4xl font-extrabold tracking-tighter text-white md:text-6xl"
+            className="mb-5 text-[clamp(1.9rem,7vw,3.75rem)] font-extrabold tracking-tighter text-white"
           >
             Choose the Software Plan{" "}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -391,7 +391,7 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="mx-auto max-w-3xl text-xl text-gray-400"
+            className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-gray-400 leading-7"
           >
             Start with a focused build or keep a technology team on monthly support. Every plan is structured around scalable software, AI automation, and reliable product delivery.
           </motion.p>
@@ -445,7 +445,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="mx-auto mb-24 grid max-w-6xl gap-6 lg:grid-cols-3">
+        <div className="mx-auto mb-16 sm:mb-24 grid max-w-6xl gap-6 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {plans.map((plan, i) => {
               const variant = plan.variants[billingMode];
@@ -457,7 +457,7 @@ export default function Pricing() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 14, scale: 0.97 }}
                   transition={{ delay: i * 0.08, duration: 0.28 }}
-                  className={`relative flex h-full flex-col rounded-[30px] border p-8 ${
+                  className={`relative flex h-full flex-col rounded-[24px] sm:rounded-[30px] border p-6 sm:p-8 ${
                     plan.popular
                       ? "border-primary/70 bg-background shadow-[0_0_70px_-22px_rgba(251,191,36,0.45)] lg:-my-3 lg:scale-[1.03]"
                       : "border-white/10 bg-background"
@@ -484,7 +484,7 @@ export default function Pricing() {
 
                   <div className="relative z-10 mb-6 rounded-2xl border border-white/8 bg-white/[0.02] p-5">
                     <div className="mb-2 flex flex-wrap items-end gap-2">
-                      <span className="text-5xl font-extrabold tracking-tight text-white">
+                      <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
                         {formatPrice(variant.priceInInr, currency)}
                       </span>
                       {variant.priceNote ? (
@@ -551,7 +551,8 @@ export default function Pricing() {
             Keep the decision simple: launch lean, build growth systems, or partner with a dedicated technology team for complex AI, app, and enterprise needs.
           </p>
 
-          <div className="overflow-hidden rounded-2xl border border-white/8">
+          <div className="overflow-x-auto rounded-2xl border border-white/8">
+            <div className="min-w-[720px]">
             <div className="grid grid-cols-4 border-b border-white/8 bg-card">
               <div className="px-6 py-4 text-xs font-semibold uppercase tracking-widest text-gray-500">
                 Comparison
@@ -593,6 +594,7 @@ export default function Pricing() {
                 ))}
               </div>
             ))}
+            </div>
           </div>
         </motion.div>
 
@@ -619,7 +621,7 @@ export default function Pricing() {
               <div className="shrink-0 flex flex-col gap-3">
                 <Button
                   size="lg"
-                  className="h-14 px-8 text-base text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.45)] transition-all hover:bg-accent/90"
+                  className="h-14 w-full md:w-auto px-8 text-base text-white shadow-[0_0_30px_-5px_rgba(251,191,36,0.45)] transition-all hover:bg-accent/90"
                   onClick={scrollToForm}
                 >
                   Get Custom Quote
@@ -628,7 +630,7 @@ export default function Pricing() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-14 px-8 text-base text-accent transition-all hover:bg-accent/10"
+                  className="h-14 w-full md:w-auto px-8 text-base text-accent transition-all hover:bg-accent/10"
                   onClick={() =>
                     window.open(
                       "https://wa.me/916205834086?text=Hi! I need a custom quote for a software, AI, web, or mobile app project.",

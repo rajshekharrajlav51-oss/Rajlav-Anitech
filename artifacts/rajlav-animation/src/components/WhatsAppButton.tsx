@@ -7,7 +7,7 @@ export default function WhatsAppButton() {
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 2, type: "spring", stiffness: 200 }}
-      className="fixed bottom-8 right-8 z-50 group"
+      className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 group"
     >
       <a
         href="https://wa.me/916205834086?text=Hi! I want to discuss a software, AI, web, or mobile app project."
@@ -16,16 +16,16 @@ export default function WhatsAppButton() {
         className="flex items-center gap-3"
       >
         {/* Tooltip */}
-        <span className="absolute right-16 bg-white text-gray-900 text-sm font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg pointer-events-none">
+        <span className="absolute right-14 sm:right-16 bg-white text-gray-900 text-sm font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-lg pointer-events-none hidden sm:inline">
           Chat on WhatsApp
         </span>
 
         {/* Button */}
-        <div className="relative w-16 h-16 rounded-full bg-green-500 hover:bg-green-400 transition-colors flex items-center justify-center shadow-[0_4px_20px_rgba(34,197,94,0.5)] cursor-pointer">
+        <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-green-500 hover:bg-green-400 transition-colors flex items-center justify-center shadow-[0_4px_20px_rgba(34,197,94,0.5)] cursor-pointer">
           {/* Pulse rings */}
           <span className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20" />
           <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-10 animation-delay-300" />
-          <MessageCircle className="w-8 h-8 text-white fill-white" />
+          <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white fill-white" />
         </div>
       </a>
     </motion.div>

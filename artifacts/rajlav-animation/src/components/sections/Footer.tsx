@@ -12,6 +12,8 @@ const socialLinks = [
   { icon: Facebook, href: "https://www.facebook.com/", label: "Facebook" },
 ];
 
+const footerIndustries = ["EdTech", "Healthcare", "FinTech", "Startups", "Enterprise"];
+
 export default function Footer() {
   return (
     <footer className="bg-background border-t border-white/6">
@@ -34,7 +36,7 @@ export default function Footer() {
       </div>
 
       <div className="container px-4 mx-auto py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-10 mb-14">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-5">
               <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center">
@@ -46,10 +48,10 @@ export default function Footer() {
             </div>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-4 max-w-sm">
-              AI & Software Development Company serving Noida, Delhi NCR, Uttar Pradesh and remote clients with AI, software, web, mobile, SaaS and business automation solutions.
+              AI, Software & Digital Product Development
             </p>
             <p className="text-gray-500 text-xs leading-relaxed mb-7 max-w-sm">
-              Also known as Rajlav Anitech, Rajlav Technologies is the technology/software division of the Rajlav ecosystem.
+              We build custom software, AI solutions, digital products and automation systems for modern businesses.
             </p>
 
             <div className="flex items-center gap-3">
@@ -95,6 +97,17 @@ export default function Footer() {
                   <Link href={href} className="text-gray-400 text-sm hover:text-white transition-colors">
                     {label}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-white font-bold text-xs uppercase tracking-widest mb-5">Industries</h2>
+            <ul className="space-y-3">
+              {footerIndustries.map((industry) => (
+                <li key={industry} className="text-gray-400 text-sm">
+                  {industry}
                 </li>
               ))}
             </ul>
