@@ -8,7 +8,7 @@ const steps = [
     num: "01",
     title: "Discover",
     tagline: "Understand the business",
-    desc: "We understand your business, users, goals and technical requirements.",
+    desc: "We understand your goals and requirements.",
     badge: "Step 01",
   },
   {
@@ -16,7 +16,7 @@ const steps = [
     num: "02",
     title: "Design",
     tagline: "Shape the solution",
-    desc: "We turn the requirements into user flows, architecture and an intuitive product experience.",
+    desc: "Plan the product experience and architecture.",
     badge: "Step 02",
   },
   {
@@ -24,7 +24,7 @@ const steps = [
     num: "03",
     title: "Build",
     tagline: "Develop the product",
-    desc: "Our development team turns the approved solution into a working, scalable product.",
+    desc: "Develop and test the product.",
     badge: "Step 03",
   },
   {
@@ -32,7 +32,7 @@ const steps = [
     num: "04",
     title: "Launch",
     tagline: "Prepare for users",
-    desc: "We test, deploy and prepare the product for real users.",
+    desc: "Deploy and prepare for users.",
     badge: "Step 04",
   },
   {
@@ -40,7 +40,7 @@ const steps = [
     num: "05",
     title: "Improve",
     tagline: "Keep moving forward",
-    desc: "After launch, we continue improving the product based on feedback, data and business needs.",
+    desc: "Keep improving based on feedback.",
     badge: "Step 05",
   },
 ];
@@ -66,9 +66,10 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="text-[clamp(1.9rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white mb-4"
+            className="text-[clamp(1.75rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white mb-4"
           >
-            A Simple Process From Idea to Launch
+            <span className="md:hidden">How We Build</span>
+            <span className="hidden md:inline">A Simple Process From Idea to Launch</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -77,7 +78,8 @@ export default function HowItWorks() {
             transition={{ delay: 0.1 }}
             className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-7"
           >
-            A practical product delivery process built for clarity, quality and long-term improvement.
+            <span className="md:hidden">A simple path from idea to launch.</span>
+            <span className="hidden md:inline">A practical product delivery process built for clarity, quality and long-term improvement.</span>
           </motion.p>
         </div>
 
@@ -111,9 +113,9 @@ export default function HowItWorks() {
                 <div className="inline-flex mb-3 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-semibold text-primary uppercase tracking-wider">
                   {step.badge}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1">{step.title}</h3>
+                <h3 className="text-lg font-bold text-white mb-1">{step.num} - {step.title}</h3>
                 <p className="text-xs font-semibold text-primary/80 mb-3">{step.tagline}</p>
-                <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                <p className="text-gray-400 text-sm leading-6 md:leading-relaxed">{step.desc}</p>
               </div>
 
               {i < steps.length - 1 && (

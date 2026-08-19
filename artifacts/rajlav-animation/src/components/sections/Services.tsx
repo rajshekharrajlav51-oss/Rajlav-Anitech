@@ -18,6 +18,7 @@ const services = [
     title: service.navTitle,
     tagline: service.title,
     desc: service.summary,
+    mobileDesc: service.mobileSummary,
     stat: "Service",
     statLabel: "Rajlav Technologies",
     href: `/services/${service.slug}`,
@@ -48,9 +49,10 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="text-[clamp(1.9rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white mb-5"
+            className="text-[clamp(1.75rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white mb-4 md:mb-5"
           >
-            Technology Services Built for Business Growth
+            <span className="md:hidden">Technology Services</span>
+            <span className="hidden md:inline">Technology Services Built for Business Growth</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -59,7 +61,8 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed"
           >
-            From your first product idea to a production-ready platform, we provide the technology expertise needed to build, launch and improve digital products.
+            <span className="md:hidden">Everything you need to build and grow a digital product.</span>
+            <span className="hidden md:inline">From your first product idea to a production-ready platform, we provide the technology expertise needed to build, launch and improve digital products.</span>
           </motion.p>
         </div>
 
@@ -85,9 +88,12 @@ export default function Services() {
                 </div>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-1 pr-10 sm:pr-0">{svc.title}</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-1 pr-10 sm:pr-0">{svc.title}</h3>
               <p className="text-xs font-semibold text-primary mb-3">{svc.tagline}</p>
-              <p className="text-gray-400 text-sm leading-relaxed">{svc.desc}</p>
+              <p className="text-gray-400 text-sm leading-6 md:leading-relaxed">
+                <span className="md:hidden">{svc.mobileDesc}</span>
+                <span className="hidden md:inline">{svc.desc}</span>
+              </p>
             </motion.div>
           ))}
         </div>

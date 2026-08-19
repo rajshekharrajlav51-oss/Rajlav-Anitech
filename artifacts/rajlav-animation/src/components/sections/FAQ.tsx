@@ -11,10 +11,10 @@ export default function FAQ() {
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
-          {faqs.map(([question, answer]) => (
+          {faqs.map(([question, answer], index) => (
             <details
               key={question}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6"
+              className={`rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6 ${index > 4 ? "hidden md:block" : ""}`}
             >
               <summary className="cursor-pointer text-white font-semibold">{question}</summary>
               <p className="mt-4 text-gray-400 leading-7">{answer}</p>

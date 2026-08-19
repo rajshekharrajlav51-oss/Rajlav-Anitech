@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 
 const CALENDLY_URL = "https://calendly.com/anitech_rajlav/new-meeting";
 const trustPills = [
-  "Custom Software Development",
-  "AI Development & Automation",
-  "Web & Mobile Apps",
-  "SaaS & Digital Platforms",
+  { desktop: "Custom Software Development", mobile: "Custom Software" },
+  { desktop: "AI Development & Automation", mobile: "AI & Automation" },
+  { desktop: "Web & Mobile Apps", mobile: "Web & Mobile Apps" },
+  { desktop: "SaaS & Digital Platforms", mobile: "SaaS & Digital Platforms" },
 ];
 
 export default function Hero() {
@@ -15,7 +15,7 @@ export default function Hero() {
     window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
 
   return (
-    <section id="home" className="relative min-h-[calc(100vh-5rem)] flex items-start justify-center pt-20 overflow-hidden">
+    <section id="home" className="relative flex items-start justify-center overflow-hidden pt-20 md:min-h-[calc(100vh-5rem)]">
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
@@ -29,12 +29,12 @@ export default function Hero() {
       <div className="absolute top-1/3 right-0 md:right-1/4 w-[240px] md:w-[400px] h-[240px] md:h-[400px] bg-accent/8 blur-[80px] md:blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 md:left-1/4 w-[220px] md:w-[350px] h-[220px] md:h-[350px] bg-primary/8 blur-[80px] md:blur-[100px] rounded-full pointer-events-none" />
 
-      <div className="container relative z-10 py-10 sm:py-12 md:py-16 mx-auto text-center max-w-6xl">
+      <div className="container relative z-10 mx-auto max-w-6xl py-7 sm:py-10 md:py-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex max-w-full items-center justify-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs sm:text-sm font-medium text-gray-200 mb-8 sm:mb-10 shadow-[0_0_20px_rgba(251,191,36,0.1)]"
+          className="mb-6 md:mb-10 inline-flex max-w-full items-center justify-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-xs sm:text-sm font-medium text-gray-200 shadow-[0_0_20px_rgba(251,191,36,0.1)]"
         >
           <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse shrink-0" />
           AI / Software / Automation
@@ -44,34 +44,41 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mx-auto max-w-[10.5ch] md:max-w-5xl text-[clamp(2rem,7.4vw,5.5rem)] font-extrabold tracking-[-0.025em] md:tracking-[-0.045em] text-white mb-6 leading-[1.1] md:leading-[1.05]"
+          className="mx-auto mb-3 max-w-[9.5ch] text-[38px] font-extrabold leading-[1.06] tracking-[-0.03em] text-white sm:text-[42px] md:mb-4 md:max-w-5xl md:text-[clamp(3.5rem,6.5vw,5.5rem)] md:leading-[1.05] md:tracking-[-0.045em]"
         >
-          <span className="block md:inline">Build Smarter</span>{" "}
-          <span className="block md:inline">Digital Products</span>{" "}
-          <span className="block md:inline">With AI & Software</span>
-          <span className="mt-2 block text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_4s_ease_infinite]">
-            Rajlav Technologies
-          </span>
+          <span className="block">Build Smarter</span>
+          <span className="block">Digital Products</span>
+          <span className="mt-2 block text-[0.58em] md:mt-0 md:inline md:text-[1em]">with AI & Software</span>
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.15 }}
+          className="mx-auto mb-5 max-w-[280px] text-[28px] font-extrabold leading-none tracking-[-0.03em] text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] animate-[gradient_4s_ease_infinite] md:mb-6 md:max-w-5xl md:text-[clamp(3.5rem,6.5vw,5.5rem)]"
+        >
+            Rajlav Technologies
+        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[15px] sm:text-base md:text-xl text-gray-400 mb-8 sm:mb-10 max-w-[680px] mx-auto font-normal leading-7 md:leading-relaxed px-1"
+          className="mx-auto mb-6 max-w-[300px] px-1 text-[15px] leading-[1.5] text-gray-400 md:mb-10 md:max-w-[680px] md:text-xl md:leading-relaxed"
         >
-          We design and build custom software, AI solutions, web and mobile applications, SaaS platforms, and business automation systems that help companies turn ideas into scalable digital products.
+          <span className="md:hidden">Build custom software, AI solutions, web and mobile apps, SaaS platforms and business automation for growing businesses.</span>
+          <span className="hidden md:inline">We design and build custom software, AI solutions, web and mobile applications, SaaS platforms, and business automation systems that help companies turn ideas into scalable digital products.</span>
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 sm:mb-14"
+          className="mb-6 flex flex-col items-center justify-center gap-3 sm:mb-10 sm:flex-row md:mb-14"
         >
           <Button
             size="lg"
-            className="w-full max-w-[300px] sm:max-w-[320px] sm:w-auto h-12 sm:h-14 px-6 sm:px-9 text-base sm:text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_40px_-5px_rgba(251,191,36,0.45)] hover:shadow-[0_0_55px_-5px_rgba(251,191,36,0.65)] transition-all font-semibold"
+            className="h-[52px] w-full max-w-[280px] px-6 text-base font-semibold text-white bg-primary hover:bg-primary/90 shadow-[0_0_40px_-5px_rgba(251,191,36,0.45)] transition-all sm:max-w-[320px] sm:w-auto sm:px-9 sm:text-lg"
             onClick={openCalendly}
           >
             Get Free Consultation
@@ -80,7 +87,7 @@ export default function Hero() {
           <Button
             size="lg"
             variant="outline"
-            className="w-full max-w-[300px] sm:max-w-[320px] sm:w-auto h-12 sm:h-14 px-6 sm:px-9 text-base sm:text-lg border-white/15 text-white hover:bg-white/5 hover:border-primary/40 transition-all font-semibold"
+            className="h-[52px] w-full max-w-[280px] px-6 text-base font-semibold text-white border-white/15 hover:bg-white/5 hover:border-primary/40 transition-all sm:max-w-[320px] sm:w-auto sm:px-9 sm:text-lg"
             onClick={() => window.location.assign("/portfolio")}
           >
             <Code2 className="mr-2 w-4 h-4" />
@@ -92,15 +99,16 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-10 sm:mb-16"
+          className="mb-8 flex flex-wrap items-center justify-center gap-2.5 md:mb-16 md:gap-3"
         >
-          {trustPills.map((pill) => (
+          {trustPills.map((pill, index) => (
             <div
-              key={pill}
-              className="flex min-h-10 items-center gap-2 px-4 py-2 rounded-full bg-white/4 border border-white/8 text-xs sm:text-sm text-gray-300"
+              key={pill.desktop}
+              className={`min-h-9 items-center gap-2 rounded-full border border-white/8 bg-white/4 px-3 py-2 text-xs text-gray-300 md:min-h-10 md:px-4 md:text-sm ${index === 3 ? "hidden md:flex" : "flex"}`}
             >
               <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-              {pill}
+              <span className="md:hidden">{pill.mobile}</span>
+              <span className="hidden md:inline">{pill.desktop}</span>
             </div>
           ))}
         </motion.div>

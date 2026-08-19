@@ -551,7 +551,7 @@ export default function Pricing() {
             Keep the decision simple: launch lean, build growth systems, or partner with a dedicated technology team for complex AI, app, and enterprise needs.
           </p>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/8">
+          <div className="max-w-full overflow-x-auto rounded-2xl border border-white/8">
             <div className="min-w-[720px]">
             <div className="grid grid-cols-4 border-b border-white/8 bg-card">
               <div className="px-6 py-4 text-xs font-semibold uppercase tracking-widest text-gray-500">

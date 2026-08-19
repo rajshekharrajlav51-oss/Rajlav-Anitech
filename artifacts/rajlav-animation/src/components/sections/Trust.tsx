@@ -5,17 +5,17 @@ const points = [
   {
     icon: CheckCircle2,
     title: "Custom Software",
-    text: "Business software designed around your processes, users and goals.",
+    text: "Software built around your business processes and goals.",
   },
   {
     icon: ShieldCheck,
     title: "AI & Automation",
-    text: "AI-powered tools and intelligent workflows that reduce repetitive work and improve decision-making.",
+    text: "AI tools and workflows that reduce repetitive work.",
   },
   {
     icon: Sparkles,
     title: "Digital Products",
-    text: "Web platforms, mobile apps and SaaS products designed for performance, usability and growth.",
+    text: "Web, mobile and SaaS products built for growth.",
   },
 ];
 
@@ -39,13 +39,14 @@ export default function Trust() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="text-[clamp(1.9rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white"
+            className="text-[clamp(1.75rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white"
           >
-            Software Built Around Real Business Workflows
+            <span className="md:hidden">Software Built for Your Business</span>
+            <span className="hidden md:inline">Software Built Around Real Business Workflows</span>
           </motion.h2>
-          <p className="mt-5 mx-auto max-w-3xl text-base sm:text-lg text-gray-400 leading-7">
-            Your business is unique. Your software should be too.
-            We build technology around the way your business actually works, from customer management and automation to payments, analytics, operations and AI-powered workflows.
+          <p className="mt-4 md:mt-5 mx-auto max-w-[340px] md:max-w-3xl text-sm sm:text-base md:text-lg text-gray-400 leading-6 md:leading-7">
+            <span className="md:hidden">We build software around your workflows, customers and business goals.</span>
+            <span className="hidden md:inline">Your business is unique. Your software should be too. We build technology around the way your business actually works, from customer management and automation to payments, analytics, operations and AI-powered workflows.</span>
           </p>
         </div>
 
@@ -57,11 +58,11 @@ export default function Trust() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className="relative w-full p-5 sm:p-7 rounded-2xl bg-card border border-card-border hover:border-primary/40 transition-colors group overflow-hidden"
+              className="relative w-full p-[18px] sm:p-6 md:p-7 rounded-2xl bg-card border border-card-border hover:border-primary/40 transition-colors group overflow-hidden"
             >
               <Icon className="w-8 h-8 text-primary mb-5" />
-              <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-              <p className="text-gray-400 leading-7">{text}</p>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2 md:mb-3">{title}</h3>
+              <p className="text-sm md:text-base text-gray-400 leading-6 md:leading-7">{text}</p>
             </motion.article>
           ))}
         </div>

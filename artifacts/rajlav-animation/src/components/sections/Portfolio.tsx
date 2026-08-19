@@ -19,6 +19,7 @@ type PortfolioItem = {
   accentClassName: string;
   tags?: string[];
   alt?: string;
+  mobileDescription?: string;
 };
 
 const categories: Category[] = ["All", "Web", "Mobile", "AI", "Enterprise"];
@@ -41,6 +42,7 @@ const portfolio: PortfolioItem[] = [
     videoUrl: `/portfolio/${item.slug}`,
     tags: item.tags,
     alt: item.alt,
+    mobileDescription: item.mobileDescription,
     accentClassName: "from-amber-700/75 via-orange-600/45 to-primary/35",
   })),
 ];
@@ -72,9 +74,10 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.05 }}
-            className="mx-auto mb-4 max-w-4xl text-[clamp(1.9rem,7vw,3.75rem)] font-extrabold tracking-[-0.04em] text-white"
+            className="mx-auto mb-4 max-w-4xl text-[clamp(1.75rem,7vw,3.75rem)] font-extrabold tracking-[-0.04em] text-white"
           >
-            Technology Projects That Deliver Real Results
+            <span className="md:hidden">Our Recent Work</span>
+            <span className="hidden md:inline">Technology Projects That Deliver Real Results</span>
           </motion.h2>
 
           <motion.p
@@ -84,7 +87,8 @@ export default function Portfolio() {
             transition={{ delay: 0.1 }}
             className="mx-auto max-w-2xl text-base leading-7 text-white/60 sm:text-lg"
           >
-            Explore some of the digital platforms, automation systems and business applications we've designed and developed.
+            <span className="md:hidden">A few digital products and business systems we've built.</span>
+            <span className="hidden md:inline">Explore some of the digital platforms, automation systems and business applications we've designed and developed.</span>
           </motion.p>
         </div>
 
@@ -118,6 +122,7 @@ export default function Portfolio() {
                 title={item.title}
                 metric={item.metric}
                 description={item.description}
+                mobileDescription={item.mobileDescription}
                 videoUrl={item.videoUrl}
                 thumbnail={item.thumbnail}
                 alt={item.alt}

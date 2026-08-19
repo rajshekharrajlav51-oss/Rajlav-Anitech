@@ -35,15 +35,17 @@ export default function CTA() {
             HAVE A PROJECT IN MIND?
           </div>
 
-          <h2 className="text-[clamp(2rem,8vw,4.5rem)] font-extrabold tracking-tighter text-white mb-6 leading-[1.08]">
-            Let's Build Your Next Digital Product
+          <h2 className="text-[clamp(1.9rem,8vw,4.5rem)] font-extrabold tracking-tighter text-white mb-4 md:mb-6 leading-[1.08]">
+            <span className="md:hidden">Have a Project in Mind?</span>
+            <span className="hidden md:inline">Let's Build Your Next Digital Product</span>
           </h2>
 
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Whether you have a complete product idea or just a business problem that needs solving, let's discuss it.
+          <p className="text-sm sm:text-base md:text-xl text-gray-400 mb-7 md:mb-10 max-w-[340px] md:max-w-3xl mx-auto leading-6 md:leading-relaxed">
+            <span className="md:hidden">Tell us what you're building. We'll help you plan the next step.</span>
+            <span className="hidden md:inline">Whether you have a complete product idea or just a business problem that needs solving, let's discuss it.</span>
           </p>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
+          <div className="hidden md:flex flex-wrap justify-center gap-3 mb-12">
             {[
               "Tell us what you're building",
               "We'll help you figure out the next step",

@@ -6,6 +6,7 @@ type PortfolioVideoCardProps = {
   title: string;
   metric: string;
   description: string;
+  mobileDescription?: string;
   videoUrl: string;
   thumbnail: string;
   alt?: string;
@@ -37,6 +38,7 @@ export default function PortfolioVideoCard({
   title,
   metric,
   description,
+  mobileDescription,
   videoUrl,
   thumbnail,
   alt,
@@ -142,9 +144,9 @@ export default function PortfolioVideoCard({
             </div>
           </div>
 
-          <div className="space-y-4 p-5 sm:p-6">
+          <div className="space-y-3 p-[18px] sm:p-6 md:space-y-4">
             <div className="flex items-center justify-between gap-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-white/45">
+              <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.22em] sm:tracking-[0.26em] text-white/45">
                 Case Study
               </p>
               <p className="bg-gradient-to-r from-white to-primary bg-clip-text text-sm font-semibold text-transparent sm:text-base">
@@ -153,11 +155,12 @@ export default function PortfolioVideoCard({
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-primary">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-primary">
                 {title}
               </h3>
-              <p className="max-w-md text-sm sm:text-[15px] leading-6 text-white/62">
-                {description}
+              <p className="max-w-md text-[13px] sm:text-sm md:text-[15px] leading-5 sm:leading-6 text-white/62">
+                <span className="md:hidden">{mobileDescription ?? description}</span>
+                <span className="hidden md:inline">{description}</span>
               </p>
             </div>
 

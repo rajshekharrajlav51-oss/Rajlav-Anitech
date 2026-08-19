@@ -5,18 +5,22 @@ export default function AboutPreview() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="text-primary text-xs font-semibold uppercase tracking-[0.24em] mb-4">ABOUT RAJLAV TECHNOLOGIES</p>
-            <h2 className="text-[clamp(1.9rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white">
-              We Build Technology That Moves Businesses Forward
+            <h2 className="text-[clamp(1.75rem,7vw,3.25rem)] font-extrabold tracking-tighter text-white">
+              <span className="md:hidden">Built Around Your Business</span>
+              <span className="hidden md:inline">We Build Technology That Moves Businesses Forward</span>
             </h2>
           </div>
           <div className="rounded-3xl border border-white/10 bg-background p-6 sm:p-8 text-gray-300 leading-8">
-            <p>
+            <p className="md:hidden">
+              Rajlav Technologies builds custom software, AI solutions and digital products for startups, businesses and enterprises.
+            </p>
+            <p className="hidden md:block">
               Rajlav Technologies is a technology development company focused on custom software, AI solutions, digital products and business automation.
             </p>
-            <p className="mt-5">
+            <p className="mt-5 hidden md:block">
               We work with startups, growing businesses and organizations that need technology built around their specific requirements.
             </p>
-            <p className="mt-5 text-white font-semibold">
+            <p className="mt-5 hidden md:block text-white font-semibold">
               Understand the problem. Build the right solution. Create technology that can grow with the business.
             </p>
           </div>
