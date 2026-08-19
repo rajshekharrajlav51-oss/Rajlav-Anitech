@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import CTA from "@/components/sections/CTA";
 import LeadForm from "@/components/sections/LeadForm";
 import { SEO } from "@/components/SEO";
@@ -35,29 +36,55 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
           <p className="text-primary text-sm font-semibold uppercase tracking-[0.24em] mb-4">{item.category}</p>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl">{item.title}</h1>
           <p className="text-gray-400 text-lg leading-8 max-w-3xl mt-6">{item.description}</p>
-          <img src={item.thumbnail} alt={item.alt} className="mt-10 w-full rounded-3xl border border-white/10" loading="eager" />
+          <figure className="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+            <img src={item.thumbnail} alt={item.alt} className="w-full" loading="eager" />
+            <figcaption className="border-t border-white/10 px-5 py-3 text-sm text-white/50">
+              Branded project cover shown for the verified Rajlav ecosystem product.
+            </figcaption>
+          </figure>
 
           <div className="grid lg:grid-cols-3 gap-6 mt-12">
             <article className="lg:col-span-2 rounded-3xl border border-white/10 bg-white/[0.03] p-8 space-y-8">
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">Project Overview</h2>
-                <p className="text-gray-300 leading-8">A {item.category.toLowerCase()} concept showing how Rajlav Technologies structures practical digital products for {item.industry.toLowerCase()} teams.</p>
+                <p className="text-gray-300 leading-8">{item.overview}</p>
               </section>
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Client/Business Problem</h2>
-                <p className="text-gray-300 leading-8">Teams often face disconnected tools, repeated manual updates, limited reporting and inconsistent user experiences.</p>
+                <h2 className="text-2xl font-bold text-white mb-4">Business Problem</h2>
+                <p className="text-gray-300 leading-8">{item.problem}</p>
               </section>
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">Solution</h2>
-                <p className="text-gray-300 leading-8">The solution combines focused workflows, secure data handling, responsive interfaces and integrations that fit the business process.</p>
+                <p className="text-gray-300 leading-8">{item.solution}</p>
+              </section>
+              <section>
+                <h2 className="text-2xl font-bold text-white mb-4">Key Features</h2>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {item.features.map((feature) => (
+                    <li key={feature} className="flex gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 text-gray-300">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </section>
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">Technology Used</h2>
-                <p className="text-gray-300 leading-8">Typical technology includes React, APIs, databases, dashboards, cloud deployment and AI integrations where they fit the requirement.</p>
+                <div className="flex flex-wrap gap-2">
+                  {item.technology.map((technology) => (
+                    <span key={technology} className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                      {technology}
+                    </span>
+                  ))}
+                </div>
               </section>
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Business Impact</h2>
-                <p className="text-gray-300 leading-8">A well-built platform can improve workflow visibility, reduce repeated manual work and create a stronger foundation for digital growth.</p>
+                <h2 className="text-2xl font-bold text-white mb-4">Development Approach</h2>
+                <p className="text-gray-300 leading-8">{item.approach}</p>
+              </section>
+              <section>
+                <h2 className="text-2xl font-bold text-white mb-4">Outcome</h2>
+                <p className="text-gray-300 leading-8">{item.outcome}</p>
               </section>
             </article>
             <aside className="rounded-3xl border border-primary/20 bg-primary/5 p-8">
@@ -71,6 +98,7 @@ export default function CaseStudyPage({ slug }: { slug: string }) {
               </ul>
               <Link href="/contact" className="mt-8 inline-flex rounded-full bg-primary px-6 py-3 font-semibold text-white">
                 Start Your Project
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </aside>
           </div>

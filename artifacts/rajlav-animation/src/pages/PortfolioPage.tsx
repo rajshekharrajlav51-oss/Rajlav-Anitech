@@ -9,7 +9,7 @@ export default function PortfolioPage() {
     <>
       <SEO 
         title="Portfolio | Rajlav Technologies" 
-        description="View Rajlav Technologies case studies across EdTech, healthcare software, FinTech CRM, AI automation, payments and reporting workflows."
+        description="View real Rajlav Technologies ecosystem projects including Rajlav Edutech, Rajlav Finance, EasyHome and Rajlav Pro Tool Kit."
         canonical={url("/portfolio")}
       />
       <div className="pt-20">

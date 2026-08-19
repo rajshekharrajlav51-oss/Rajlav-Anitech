@@ -45,12 +45,10 @@ function App() {
                 <Route path="/services/healthcare-software"><ServiceDetailPage slug="healthcare-software" /></Route>
                 <Route path="/services/edtech-development"><ServiceDetailPage slug="edtech-development" /></Route>
                 <Route path="/portfolio" component={PortfolioPage} />
-                <Route path="/portfolio/edtech-learning-platform"><CaseStudyPage slug="edtech-learning-platform" /></Route>
-                <Route path="/portfolio/healthcare-management-system"><CaseStudyPage slug="healthcare-management-system" /></Route>
-                <Route path="/portfolio/finance-crm"><CaseStudyPage slug="finance-crm" /></Route>
-                <Route path="/portfolio/ai-business-assistant"><CaseStudyPage slug="ai-business-assistant" /></Route>
-                <Route path="/portfolio/payments-inventory"><CaseStudyPage slug="payments-inventory" /></Route>
-                <Route path="/portfolio/reporting-automation"><CaseStudyPage slug="reporting-automation" /></Route>
+                <Route path="/portfolio/rajlav-edutech"><CaseStudyPage slug="rajlav-edutech" /></Route>
+                <Route path="/portfolio/rajlav-finance"><CaseStudyPage slug="rajlav-finance" /></Route>
+                <Route path="/portfolio/easyhome"><CaseStudyPage slug="easyhome" /></Route>
+                <Route path="/portfolio/rajlav-pro-tool-kit"><CaseStudyPage slug="rajlav-pro-tool-kit" /></Route>
                 <Route path="/pricing" component={PricingPage} />
                 <Route path="/about" component={AboutPage} />
                 <Route path="/contact" component={ContactPage} />

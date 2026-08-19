@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Rajlav Edutech branded project cover</title>
+  <desc id="desc">Branded cover for the Rajlav Edutech digital learning platform case study.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#050507"/>
+      <stop offset="0.48" stop-color="#161008"/>
+      <stop offset="1" stop-color="#050507"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 126h1200M0 252h1200M0 378h1200M0 504h1200M150 0v675M300 0v675M450 0v675M600 0v675M750 0v675M900 0v675M1050 0v675" stroke="#ffffff" stroke-opacity="0.045"/>
+  <circle cx="890" cy="170" r="280" fill="#fbbf24" opacity="0.1"/>
+  <circle cx="320" cy="520" r="220" fill="#22c55e" opacity="0.08"/>
+  <rect x="96" y="84" width="1008" height="507" rx="34" fill="#09090b" fill-opacity="0.78" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="138" y="126" width="92" height="92" rx="24" fill="url(#gold)"/>
+  <path d="M166 176h36M166 154h46M166 198h30" stroke="#111111" stroke-width="10" stroke-linecap="round"/>
+  <text x="264" y="162" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Rajlav Ecosystem Project</text>
+  <text x="138" y="330" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800">Rajlav Edutech</text>
+  <text x="142" y="392" fill="#fbbf24" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Digital Learning Platform</text>
+  <text x="142" y="462" fill="#d1d5db" font-family="Inter, Arial, sans-serif" font-size="28">Courses, educational content and online learning experiences.</text>
+  <rect x="142" y="500" width="146" height="42" rx="21" fill="#fbbf24" fill-opacity="0.14" stroke="#fbbf24" stroke-opacity="0.35"/>
+  <text x="172" y="528" fill="#fbbf24" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">EdTech</text>
+  <rect x="306" y="500" width="108" height="42" rx="21" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+  <text x="340" y="528" fill="#f3f4f6" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Web</text>
+</svg>

@@ -1,51 +1,45 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PortfolioVideoCard from "@/components/sections/PortfolioVideoCard";
 import { portfolio as seoPortfolio } from "@/lib/seo-data";
 
-type Category = "All" | "Web" | "Mobile" | "AI" | "Enterprise";
+type Category = "All" | string;
 
 type PortfolioItem = {
   id: number;
   title: string;
-  category: Exclude<Category, "All">;
-  duration: string;
-  metric: string;
+  category: string;
+  industry: string;
   description: string;
   thumbnail: string;
-  videoUrl: string;
+  caseStudyUrl: string;
   accentClassName: string;
   tags?: string[];
   alt?: string;
   mobileDescription?: string;
 };
 
-const categories: Category[] = ["All", "Web", "Mobile", "AI", "Enterprise"];
-
 const portfolio: PortfolioItem[] = [
-  ...seoPortfolio.map((item, index) => ({
-    id: index + 1,
-    title: item.title,
-    category: (
-      item.slug === "ai-business-assistant"
-        ? "AI"
-        : item.slug === "edtech-learning-platform" || item.slug === "payments-inventory"
-          ? "Web"
-          : "Enterprise"
-    ) as Exclude<Category, "All">,
-    duration: item.industry,
-    metric: item.category,
-    description: item.description,
-    thumbnail: item.thumbnail,
-    videoUrl: `/portfolio/${item.slug}`,
-    tags: item.tags,
-    alt: item.alt,
-    mobileDescription: item.mobileDescription,
-    accentClassName: "from-amber-700/75 via-orange-600/45 to-primary/35",
-  })),
+  ...seoPortfolio
+    .filter((item) => item.isRealProject)
+    .map((item, index) => ({
+      id: index + 1,
+      title: item.title,
+      category: item.category,
+      industry: item.industry,
+      description: item.description,
+      thumbnail: item.thumbnail,
+      caseStudyUrl: `/portfolio/${item.slug}`,
+      tags: item.tags,
+      alt: item.alt,
+      mobileDescription: item.mobileDescription,
+      accentClassName: "from-amber-700/60 via-orange-600/25 to-primary/20",
+    })),
 ];
+
+const categories: Category[] = ["All", ...Array.from(new Set(portfolio.map((item) => item.category)))];
 
 export default function Portfolio() {
   const [active, setActive] = useState<Category>("All");
@@ -65,8 +59,8 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary"
           >
-            <Play className="h-3.5 w-3.5 fill-current" />
-            SELECTED WORK
+            <BriefcaseBusiness className="h-3.5 w-3.5" />
+            REAL PROJECTS
           </motion.div>
 
           <motion.h2
@@ -76,8 +70,8 @@ export default function Portfolio() {
             transition={{ delay: 0.05 }}
             className="mx-auto mb-4 max-w-4xl text-[clamp(1.75rem,7vw,3.75rem)] font-extrabold tracking-[-0.04em] text-white"
           >
-            <span className="md:hidden">Our Recent Work</span>
-            <span className="hidden md:inline">Technology Projects That Deliver Real Results</span>
+            <span className="md:hidden">Real Rajlav Projects</span>
+            <span className="hidden md:inline">Real Rajlav Ecosystem Projects and Case Studies</span>
           </motion.h2>
 
           <motion.p
@@ -87,8 +81,8 @@ export default function Portfolio() {
             transition={{ delay: 0.1 }}
             className="mx-auto max-w-2xl text-base leading-7 text-white/60 sm:text-lg"
           >
-            <span className="md:hidden">A few digital products and business systems we've built.</span>
-            <span className="hidden md:inline">Explore some of the digital platforms, automation systems and business applications we've designed and developed.</span>
+            <span className="md:hidden">Verified projects from the Rajlav ecosystem.</span>
+            <span className="hidden md:inline">Explore the real product ecosystem behind Rajlav Technologies: EdTech, finance, property technology and professional workflow tools.</span>
           </motion.p>
         </div>
 
@@ -120,14 +114,13 @@ export default function Portfolio() {
               <PortfolioVideoCard
                 key={item.id}
                 title={item.title}
-                metric={item.metric}
                 description={item.description}
                 mobileDescription={item.mobileDescription}
-                videoUrl={item.videoUrl}
+                caseStudyUrl={item.caseStudyUrl}
                 thumbnail={item.thumbnail}
                 alt={item.alt}
                 category={item.category}
-                duration={item.duration}
+                industry={item.industry}
                 accentClassName={item.accentClassName}
                 tags={item.tags}
               />
@@ -144,7 +137,7 @@ export default function Portfolio() {
               document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            Start a Project Like This
+            Discuss a Similar Project
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
